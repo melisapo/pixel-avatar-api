@@ -8,13 +8,17 @@ using Color = SixLabors.ImageSharp.Color;
 
 namespace pixel_avatar.Services;
 
-public class AvatarService
+public class AvatarService(IWebHostEnvironment env)
 {
-    private const int BaseCount = 5;
+    private const int BaseCount = 4;
     private const int FaceCount = 5;
-    private const int HairCount = 6;
-    private const int AccessoriesCount = 5;
+    private const int HairCount = 8;
+    private const int AccessoriesCount = 1;
     private const int ClothesCount = 5;
+    
+    //private readonly string _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
+    // Ruta temporal
+    private const string AssetsPath = "/home/melissa/Programaxion/pixel-avatar/PixelAvatar/Assets";
 
     /// <summary>
     /// Genera las características del avatar a partir del string de entrada.
@@ -42,34 +46,63 @@ public class AvatarService
     }
 
     /// <summary>
-    /// Genera un PNG representando el avatar (por ahora de color distinto según Base).
+    /// Ensambla las partes y genera el png con el tamano dado
     /// </summary>
     public static async Task<byte[]> GenerateAvatarImageAsync(AvatarCharacteristics avatar, int size = 32)
     {
-        // Imagen cuadrada de fondo aleatorio según la base
-        using var image = new Image<Rgba32>(size, size);
-
-        var color = GetColorFromIndex(avatar.Base);
-        image.Mutate(x => x.BackgroundColor(color));
-
+        var layers = new List<string>
+        {
+            Path.Combine(AssetsPath, "base", $"{avatar.Base}.png"),
+            Path.Combine(AssetsPath, "face", $"{avatar.Face}.png"),
+            Path.Combine(AssetsPath, "hair", $"{avatar.Hair}.png"),
+            Path.Combine(AssetsPath, "clothes", $"{avatar.Clothes}.png")
+        };
+   
+        if (avatar.Accessories is not null)
+        {
+            layers.Add(Path.Combine(AssetsPath, "accessories", $"{avatar.Accessories}.png"));
+        }
+        
+        using var finalImage = new Image<Rgba32>(size, size);
+   
+        foreach (var layerPath in layers.Where(File.Exists))
+        {
+            using var layer = await Image.LoadAsync<Rgba32>(layerPath);
+            layer.Mutate(x => x.Resize(size, size)); // ajustar tamaño
+            finalImage.Mutate(x => x.DrawImage(layer, 1f));
+        }
+        
         using var ms = new MemoryStream();
-        await image.SaveAsPngAsync(ms);
+        await finalImage.SaveAsPngAsync(ms);
         return ms.ToArray();
     }
+    
+    
+    // public static async Task<byte[]> GenerateAvatarImageAsync(AvatarCharacteristics avatar, int size = 32)
+    // {
+    //     using var image = new Image<Rgba32>(size, size);
+    //
+    //     var color = GetColorFromIndex(avatar.Base);
+    //     image.Mutate(x => x.BackgroundColor(color));
+    //
+    //     using var ms = new MemoryStream();
+    //     await image.SaveAsPngAsync(ms);
+    //     return ms.ToArray();
+    // }
 
-    private static Color GetColorFromIndex(int index)
-    {
-        var colors = new[]
-        {
-            Color.Aqua,
-            Color.Blue,
-            Color.Red,
-            Color.Orange,
-            Color.Green,
-        };
-
-        return colors[index % colors.Length];
-    }
+    // private static Color GetColorFromIndex(int index)
+    // {
+    //     var colors = new[]
+    //     {
+    //         Color.Aqua,
+    //         Color.Blue,
+    //         Color.Red,
+    //         Color.Orange,
+    //         Color.Green,
+    //     };
+    //
+    //     return colors[index % colors.Length];
+    // }
 }
 /* using pixel_avatar.Models;
    using SixLabors.ImageSharp;
