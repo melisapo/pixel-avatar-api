@@ -15,14 +15,12 @@ public class AvatarService(IWebHostEnvironment env)
     private const int AccessoriesCount = 1;
     private const int ClothesCount = 5;
 
-    //private readonly string _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
-    // Ruta temporal
-    private const string AssetsPath = "/home/melissa/Programaxion/pixel-avatar/PixelAvatar/Assets";
+    private readonly string _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
 
     /// <summary>
     /// Genera las características del avatar a partir del string de entrada.
     /// </summary>
-    public static AvatarCharacteristics GenerateCharacteristics(string input)
+    public AvatarCharacteristics GenerateCharacteristics(string input)
     {
         var hash = HashUtils.ToMd5(input);
 
@@ -47,22 +45,22 @@ public class AvatarService(IWebHostEnvironment env)
     /// <summary>
     /// Ensambla las partes y genera el png con el tamano dado
     /// </summary>
-    public static async Task<byte[]> GenerateAvatarImageAsync(AvatarCharacteristics avatar, int size = 32)
+    public async Task<byte[]> GenerateAvatarImageAsync(AvatarCharacteristics avatar, int size = 32)
     {
         var layers = new List<string>
         {
-            Path.Combine(AssetsPath, "bases", $"{avatar.Base}.png"),
-            Path.Combine(AssetsPath, "faces", $"{avatar.Face}.png"),
-            Path.Combine(AssetsPath, "hairs", $"{avatar.Hair}.png"),
-            Path.Combine(AssetsPath, "clothes", $"{avatar.Clothes}.png")
+            Path.Combine(_assetsPath, "bases", $"{avatar.Base}.png"),
+            Path.Combine(_assetsPath, "faces", $"{avatar.Face}.png"),
+            Path.Combine(_assetsPath, "hairs", $"{avatar.Hair}.png"),
+            Path.Combine(_assetsPath, "clothes", $"{avatar.Clothes}.png")
         };
 
         if (avatar.Accessories is not null)
         {
-            layers.Add(Path.Combine(AssetsPath, "accessories", $"{avatar.Accessories}.png"));
+            layers.Add(Path.Combine(_assetsPath, "accessories", $"{avatar.Accessories}.png"));
         }
 
-        using var finalImage = new Image<Rgba32>(size, size, new Rgba32(0, 0, 0, 0)); // transparente real
+        using var finalImage = new Image<Rgba32>(size, size, new Rgba32(0, 0, 0, 0));
 
         var graphicsOptions = new GraphicsOptions
         {
