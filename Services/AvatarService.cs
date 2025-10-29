@@ -12,7 +12,7 @@ public class AvatarService(IWebHostEnvironment env)
     private const int BaseCount = 4;
     private const int FaceCount = 5;
     private const int HairCount = 8;
-    private const int AccessoriesCount = 2;
+    private const int AccessoriesCount = 1;
     private const int ClothesCount = 5;
 
     //private readonly string _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
