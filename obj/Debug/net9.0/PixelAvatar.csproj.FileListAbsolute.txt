@@ -56,3 +56,4 @@
 /home/melissa/Programaxion/pixel-avatar/PixelAvatar/obj/Debug/net9.0/PixelAvatar.pdb
 /home/melissa/Programaxion/pixel-avatar/PixelAvatar/obj/Debug/net9.0/PixelAvatar.genruntimeconfig.cache
 /home/melissa/Programaxion/pixel-avatar/PixelAvatar/obj/Debug/net9.0/ref/PixelAvatar.dll
+/home/melissa/Programaxion/pixel-avatar/PixelAvatar/obj/Debug/net9.0/PixelAvatar.sourcelink.json

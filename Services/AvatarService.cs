@@ -4,7 +4,6 @@ using pixel_avatar.Utils;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using Color = SixLabors.ImageSharp.Color;
 
 namespace pixel_avatar.Services;
 
@@ -13,9 +12,9 @@ public class AvatarService(IWebHostEnvironment env)
     private const int BaseCount = 4;
     private const int FaceCount = 5;
     private const int HairCount = 8;
-    private const int AccessoriesCount = 1;
+    private const int AccessoriesCount = 2;
     private const int ClothesCount = 5;
-    
+
     //private readonly string _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
     // Ruta temporal
     private const string AssetsPath = "/home/melissa/Programaxion/pixel-avatar/PixelAvatar/Assets";
@@ -52,108 +51,35 @@ public class AvatarService(IWebHostEnvironment env)
     {
         var layers = new List<string>
         {
-            Path.Combine(AssetsPath, "base", $"{avatar.Base}.png"),
-            Path.Combine(AssetsPath, "face", $"{avatar.Face}.png"),
-            Path.Combine(AssetsPath, "hair", $"{avatar.Hair}.png"),
+            Path.Combine(AssetsPath, "bases", $"{avatar.Base}.png"),
+            Path.Combine(AssetsPath, "faces", $"{avatar.Face}.png"),
+            Path.Combine(AssetsPath, "hairs", $"{avatar.Hair}.png"),
             Path.Combine(AssetsPath, "clothes", $"{avatar.Clothes}.png")
         };
-   
+
         if (avatar.Accessories is not null)
         {
             layers.Add(Path.Combine(AssetsPath, "accessories", $"{avatar.Accessories}.png"));
         }
-        
-        using var finalImage = new Image<Rgba32>(size, size);
-   
+
+        using var finalImage = new Image<Rgba32>(size, size, new Rgba32(0, 0, 0, 0)); // transparente real
+
+        var graphicsOptions = new GraphicsOptions
+        {
+            BlendPercentage = 1f,
+            AlphaCompositionMode = PixelAlphaCompositionMode.SrcOver
+        };
+
         foreach (var layerPath in layers.Where(File.Exists))
         {
             using var layer = await Image.LoadAsync<Rgba32>(layerPath);
-            layer.Mutate(x => x.Resize(size, size)); // ajustar tamaño
-            finalImage.Mutate(x => x.DrawImage(layer, 1f));
+            layer.Mutate(x => x.Resize(size, size));
+            finalImage.Mutate(x => x.DrawImage(layer, graphicsOptions));
         }
-        
+
+
         using var ms = new MemoryStream();
         await finalImage.SaveAsPngAsync(ms);
         return ms.ToArray();
     }
-    
-    
-    // public static async Task<byte[]> GenerateAvatarImageAsync(AvatarCharacteristics avatar, int size = 32)
-    // {
-    //     using var image = new Image<Rgba32>(size, size);
-    //
-    //     var color = GetColorFromIndex(avatar.Base);
-    //     image.Mutate(x => x.BackgroundColor(color));
-    //
-    //     using var ms = new MemoryStream();
-    //     await image.SaveAsPngAsync(ms);
-    //     return ms.ToArray();
-    // }
-
-    // private static Color GetColorFromIndex(int index)
-    // {
-    //     var colors = new[]
-    //     {
-    //         Color.Aqua,
-    //         Color.Blue,
-    //         Color.Red,
-    //         Color.Orange,
-    //         Color.Green,
-    //     };
-    //
-    //     return colors[index % colors.Length];
-    // }
 }
-/* using pixel_avatar.Models;
-   using SixLabors.ImageSharp;
-   using SixLabors.ImageSharp.PixelFormats;
-   using SixLabors.ImageSharp.Processing;
-   
-   namespace pixel_avatar.Services;
-   
-   public class AvatarService
-   {
-       private readonly string _assetsPath;
-   
-       public AvatarService(IWebHostEnvironment env)
-       {
-           // Ruta absoluta al directorio /Assets
-           _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
-       }
-   
-       public async Task<byte[]> GenerateAvatarImageAsync(AvatarCharacteristics avatar, int size = 32)
-       {
-           // Cargar las capas en orden
-           var layers = new List<string>
-           {
-               Path.Combine(_assetsPath, "base", $"{avatar.Base}.png"),
-               Path.Combine(_assetsPath, "face", $"{avatar.Face}.png"),
-               Path.Combine(_assetsPath, "hair", $"{avatar.Hair}.png"),
-               Path.Combine(_assetsPath, "clothes", $"{avatar.Clothes}.png")
-           };
-   
-           if (avatar.Accessories is not null)
-           {
-               layers.Add(Path.Combine(_assetsPath, "accessories", $"{avatar.Accessories}.png"));
-           }
-   
-           // Composición de imagen
-           using var finalImage = new Image<Rgba32>(size, size);
-   
-           foreach (var layerPath in layers)
-           {
-               if (!File.Exists(layerPath))
-                   continue; // si no existe, la saltamos
-   
-               using var layer = await Image.LoadAsync<Rgba32>(layerPath);
-               layer.Mutate(x => x.Resize(size, size)); // ajustar tamaño
-               finalImage.Mutate(x => x.DrawImage(layer, 1f));
-           }
-   
-           // Guardar en memoria como PNG
-           using var ms = new MemoryStream();
-           await finalImage.SaveAsPngAsync(ms);
-           return ms.ToArray();
-       }
-   }
-   */
