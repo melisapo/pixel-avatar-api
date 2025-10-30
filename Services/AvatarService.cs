@@ -7,15 +7,27 @@ using SixLabors.ImageSharp.Processing;
 
 namespace pixel_avatar.Services;
 
-public class AvatarService(IWebHostEnvironment env)
+public class AvatarService
 {
-    private const int BaseCount = 4;
-    private const int FaceCount = 5;
-    private const int HairCount = 8;
-    private const int AccessoriesCount = 1;
-    private const int ClothesCount = 5;
-
-    private readonly string _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
+    private readonly string _assetsPath;
+    private static readonly Dictionary<string, int> PartCounts = new();
+    public AvatarService(IWebHostEnvironment env)
+    {
+        _assetsPath = Path.Combine(env.ContentRootPath, "assets");
+        
+        PartCounts["base"] = CountAssets("base");
+        PartCounts["face"] = CountAssets("face");
+        PartCounts["hair"] = CountAssets("hair");
+        PartCounts["clothes"] = CountAssets("clothes");
+        PartCounts["accessories"] = CountAssets("accessories");
+    }
+    
+    private int CountAssets(string folder)
+    {
+        var path = Path.Combine(_assetsPath, folder);
+        return !Directory.Exists(path) ? 0 :
+            Directory.GetFiles(path, "*.png").Length;
+    }
 
     /// <summary>
     /// Genera las características del avatar a partir del string de entrada.
@@ -24,11 +36,11 @@ public class AvatarService(IWebHostEnvironment env)
     {
         var hash = HashUtils.ToMd5(input);
 
-        var baseIndex = HashUtils.SliceToRange(hash, 0, 4, BaseCount);
-        var faceIndex = HashUtils.SliceToRange(hash, 4, 4, FaceCount);
-        var hairIndex = HashUtils.SliceToRange(hash, 8, 4, HairCount);
-        var clothesIndex = HashUtils.SliceToRange(hash, 12, 4, ClothesCount);
-        var accessoriesIndex = HashUtils.SliceToRange(hash, 16, 4, AccessoriesCount);
+        var baseIndex = HashUtils.SliceToRange(hash, 0, 4, PartCounts["base"]);
+        var faceIndex = HashUtils.SliceToRange(hash, 4, 4, PartCounts["face"]);
+        var hairIndex = HashUtils.SliceToRange(hash, 8, 4, PartCounts["hair"]);
+        var clothesIndex = HashUtils.SliceToRange(hash, 12, 4, PartCounts["clothes"]);
+        var accessoriesIndex = HashUtils.SliceToRange(hash, 16, 4, PartCounts["accessories"]);
         
         // 80% de probabilidad de tener accesorio
         var hasAccessory = (accessoriesIndex % 10) < 8;
