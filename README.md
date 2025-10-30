@@ -1,6 +1,6 @@
 # ✎ᝰ PixelAvatar — Generador de Avatares Pixel Art
 
-
+![pixel-avatar-api-github-readme](https://github.com/user-attachments/assets/efa8be7a-c488-4489-8aeb-d7a368c17ba8)
 
 PixelAvatar es una pequeña API escrita en **ASP.NET Core 9** que genera avatares *pixel art* únicos a partir de un string.  
 Cada nombre (por ejemplo, “Max” o “luna01”) produce siempre el mismo avatar, generado mediante un hash MD5 y la combinación aleatoria de capas gráficas (base, cara, pelo, ropa y accesorios).
@@ -51,4 +51,4 @@ Y luego:
 | neo@example | <img src="Examples/neo@example.png" width="256" /> |
 
 
-## Hecho con ❤ y pixeles! (˶ᵔ ᵕ ᵔ˶) ‹𝟹
+## Hecho con ❤ y píxeles! (˶ᵔ ᵕ ᵔ˶) ‹𝟹
