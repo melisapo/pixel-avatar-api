@@ -20,16 +20,16 @@ public class AvatarService(IWebHostEnvironment env)
     /// <summary>
     /// Genera las características del avatar a partir del string de entrada.
     /// </summary>
-    public AvatarCharacteristics GenerateCharacteristics(string input)
+    public static AvatarCharacteristics GenerateCharacteristics(string input)
     {
         var hash = HashUtils.ToMd5(input);
 
-        var baseIndex = HashUtils.SliceToRange(hash, 0, 3, BaseCount);
-        var faceIndex = HashUtils.SliceToRange(hash, 3, 3, FaceCount);
-        var hairIndex = HashUtils.SliceToRange(hash, 6, 3, HairCount);
-        var accessoriesIndex = HashUtils.SliceToRange(hash, 9, 3, AccessoriesCount);
-        var clothesIndex = HashUtils.SliceToRange(hash, 12, 3, ClothesCount);
-
+        var baseIndex = HashUtils.SliceToRange(hash, 0, 4, BaseCount);
+        var faceIndex = HashUtils.SliceToRange(hash, 4, 4, FaceCount);
+        var hairIndex = HashUtils.SliceToRange(hash, 8, 4, HairCount);
+        var clothesIndex = HashUtils.SliceToRange(hash, 12, 4, ClothesCount);
+        var accessoriesIndex = HashUtils.SliceToRange(hash, 16, 4, AccessoriesCount);
+        
         // 80% de probabilidad de tener accesorio
         var hasAccessory = (accessoriesIndex % 10) < 8;
 
@@ -37,8 +37,8 @@ public class AvatarService(IWebHostEnvironment env)
             @base: baseIndex,
             face: faceIndex,
             hair: hairIndex,
-            accessories: hasAccessory ? accessoriesIndex : null,
-            clothes: clothesIndex
+            clothes: clothesIndex,
+            accessories: hasAccessory ? accessoriesIndex : null
         );
     }
 
@@ -72,7 +72,7 @@ public class AvatarService(IWebHostEnvironment env)
         {
             using var layer = await Image.LoadAsync<Rgba32>(layerPath);
             layer.Mutate(x => x.Resize(size, size));
-            finalImage.Mutate(x => x.DrawImage(layer, graphicsOptions));
+            finalImage.Mutate(x => { x.DrawImage(layer, graphicsOptions); });
         }
 
 
