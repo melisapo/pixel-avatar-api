@@ -25,7 +25,7 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 
-app.MapGet("/", () => "Avatar Generator API está funcionando! Ve a /swagger para la documentación.");
+app.MapGet("/", () => "Escribe en la url '/<tu nombre>?size=512' para obtener tu avatar unico <3");
 
 Console.WriteLine("🎨 Avatar Generator iniciando...");
 

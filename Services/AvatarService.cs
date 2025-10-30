@@ -16,6 +16,7 @@ public class AvatarService
         _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
         
         PartCounts["base"] = CountAssets("bases");
+            
         PartCounts["face"] = CountAssets("faces");
         PartCounts["hair"] = CountAssets("hairs");
         PartCounts["clothes"] = CountAssets("clothes");
