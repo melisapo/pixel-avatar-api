@@ -13,11 +13,11 @@ public class AvatarService
     private static readonly Dictionary<string, int> PartCounts = new();
     public AvatarService(IWebHostEnvironment env)
     {
-        _assetsPath = Path.Combine(env.ContentRootPath, "assets");
+        _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
         
-        PartCounts["base"] = CountAssets("base");
-        PartCounts["face"] = CountAssets("face");
-        PartCounts["hair"] = CountAssets("hair");
+        PartCounts["base"] = CountAssets("bases");
+        PartCounts["face"] = CountAssets("faces");
+        PartCounts["hair"] = CountAssets("hairs");
         PartCounts["clothes"] = CountAssets("clothes");
         PartCounts["accessories"] = CountAssets("accessories");
     }
