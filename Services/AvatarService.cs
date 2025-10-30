@@ -13,7 +13,7 @@ public class AvatarService
     private static readonly Dictionary<string, int> PartCounts = new();
     public AvatarService(IWebHostEnvironment env)
     {
-        _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
+        _assetsPath = Path.Combine(Directory.GetCurrentDirectory(), "assets");
         
         PartCounts["base"] = CountAssets("bases");
             
