@@ -30,8 +30,16 @@ public static class HashUtils
     /// </summary>
     public static int SliceToRange(string hash, int start, int length, int max)
     {
-        var slice = hash.Substring(start, length);
-        var value = FromHex(slice);
-        return value % max;
+        if (max == 0)
+        {
+            Console.WriteLine("Max length is 0.");
+            return 0;
+        }
+        else
+        {
+            var slice = hash.Substring(start, length);
+            var value = FromHex(slice);
+            return value % max;
+        }
     }
 }

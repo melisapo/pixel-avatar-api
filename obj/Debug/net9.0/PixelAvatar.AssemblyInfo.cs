@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PixelAvatar")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4d15347961964274266a597252d9a4ae48170c2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8704ad9d7c577e7b0762c3d6d25aea622a111539")]
 [assembly: System.Reflection.AssemblyProductAttribute("PixelAvatar")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PixelAvatar")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
