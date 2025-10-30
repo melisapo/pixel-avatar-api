@@ -21,6 +21,7 @@
       <Folder Include="Assets\clothes\" />
       <Folder Include="Assets\faces\" />
       <Folder Include="Assets\hairs\" />
+      <Folder Include="Examples\" />
     </ItemGroup>
 
 </Project>
