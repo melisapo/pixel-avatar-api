@@ -1,5 +1,3 @@
-using pixel_avatar.Models;
-
 namespace pixel_avatar.Application.Interfaces;
 
 public interface IAvatarService

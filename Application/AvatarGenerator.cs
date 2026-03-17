@@ -1,8 +1,6 @@
 using Microsoft.Extensions.Caching.Memory;
 using pixel_avatar.Application.Interfaces;
-using pixel_avatar.Infrastructure.Persistence;
-using pixel_avatar.Models;
-using pixel_avatar.Utils;
+using pixel_avatar.Infrastructure;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
@@ -15,11 +13,11 @@ public class AvatarGenerator(FileSystemLayerRepository repo, IMemoryCache cache)
     {
         var hash = HashUtils.ToMd5(input);
 
-        var baseIndex        = HashUtils.SliceToRange(hash, 0,  4, repo.GetCount("base"));
-        var faceIndex        = HashUtils.SliceToRange(hash, 4,  4, repo.GetCount("face"));
-        var hairIndex        = HashUtils.SliceToRange(hash, 8,  4, repo.GetCount("hair"));
-        var clothesIndex     = HashUtils.SliceToRange(hash, 12, 4, repo.GetCount("clothes"));
-        var accessoriesIndex = HashUtils.SliceToRange(hash, 16, 4, repo.GetCount("accessories"));
+        var baseIndex = HashSlice.ToRange(hash, 0,  4, repo.GetCount("base"));
+        var faceIndex = HashSlice.ToRange(hash, 4,  4, repo.GetCount("face"));
+        var hairIndex = HashSlice.ToRange(hash, 8,  4, repo.GetCount("hair"));
+        var clothesIndex     = HashSlice.ToRange(hash, 12, 4, repo.GetCount("clothes"));
+        var accessoriesIndex = HashSlice.ToRange(hash, 16, 4, repo.GetCount("accessories"));
 
         var hasAccessory = (accessoriesIndex % 10) < 8;
 

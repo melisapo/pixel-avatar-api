@@ -7,7 +7,6 @@ public class FileSystemLayerRepository
 
     public FileSystemLayerRepository(IWebHostEnvironment env)
     {
-        // Usa env en lugar de Directory.GetCurrentDirectory()
         _assetsPath = Path.Combine(env.ContentRootPath, "Assets");
 
         _partCounts = new Dictionary<string, int>
