@@ -1,4 +1,3 @@
-// Controllers/AvatarController.cs
 using Microsoft.AspNetCore.Mvc;
 using pixel_avatar.Application.Interfaces;
 

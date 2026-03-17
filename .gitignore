@@ -1,0 +1,30 @@
+# Build
+bin/
+obj/
+
+# Configuración local
+appsettings.Development.json
+*.user
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+*.suo
+
+# VS Code
+.vscode/
+
+# dotnet
+project.nuget.cache
+*.nuget.dgspec.json
+
+# Publicación
+publish/
+out/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

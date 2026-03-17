@@ -1,4 +1,4 @@
-namespace pixel_avatar.Infrastructure.Persistence;
+namespace pixel_avatar.Infrastructure;
 
 public class FileSystemLayerRepository
 {
