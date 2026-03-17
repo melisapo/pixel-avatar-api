@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "emcUlunnP1A=",
+  "dgSpecHash": "8w11BZS7/hQ=",
   "success": true,
-  "projectFilePath": "/home/melissa/Programaxion/pixel-avatar/PixelAvatar/PixelAvatar.csproj",
+  "projectFilePath": "/home/melissa/Programacion/pixel-avatar-api/PixelAvatar.csproj",
   "expectedPackageFiles": [
     "/home/melissa/.nuget/packages/microsoft.extensions.apidescription.server/9.0.0/microsoft.extensions.apidescription.server.9.0.0.nupkg.sha512",
     "/home/melissa/.nuget/packages/microsoft.extensions.caching.abstractions/9.0.9/microsoft.extensions.caching.abstractions.9.0.9.nupkg.sha512",
@@ -21,7 +21,9 @@
     "/home/melissa/.nuget/packages/swashbuckle.aspnetcore.swagger/9.0.4/swashbuckle.aspnetcore.swagger.9.0.4.nupkg.sha512",
     "/home/melissa/.nuget/packages/swashbuckle.aspnetcore.swaggergen/9.0.4/swashbuckle.aspnetcore.swaggergen.9.0.4.nupkg.sha512",
     "/home/melissa/.nuget/packages/swashbuckle.aspnetcore.swaggerui/9.0.4/swashbuckle.aspnetcore.swaggerui.9.0.4.nupkg.sha512",
-    "/home/melissa/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.8/microsoft.aspnetcore.app.ref.9.0.8.nupkg.sha512"
+    "/home/melissa/.nuget/packages/microsoft.netcore.app.ref/9.0.11/microsoft.netcore.app.ref.9.0.11.nupkg.sha512",
+    "/home/melissa/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.11/microsoft.aspnetcore.app.ref.9.0.11.nupkg.sha512",
+    "/home/melissa/.nuget/packages/microsoft.netcore.app.host.linux-x64/9.0.11/microsoft.netcore.app.host.linux-x64.9.0.11.nupkg.sha512"
   ],
   "logs": []
 }

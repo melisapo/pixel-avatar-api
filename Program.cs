@@ -1,11 +1,15 @@
-using pixel_avatar.Services;
+using pixel_avatar.Application;
+using pixel_avatar.Application.Interfaces;
+using pixel_avatar.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
 
-builder.Services.AddSingleton<AvatarService>();
+builder.Services.AddMemoryCache();
+builder.Services.AddSingleton<FileSystemLayerRepository>();
+builder.Services.AddScoped<IAvatarService, AvatarGenerator>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

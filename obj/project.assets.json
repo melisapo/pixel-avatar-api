@@ -1071,11 +1071,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/melissa/Programaxion/pixel-avatar/PixelAvatar/PixelAvatar.csproj",
+      "projectUniqueName": "/home/melissa/Programacion/pixel-avatar-api/PixelAvatar.csproj",
       "projectName": "PixelAvatar",
-      "projectPath": "/home/melissa/Programaxion/pixel-avatar/PixelAvatar/PixelAvatar.csproj",
+      "projectPath": "/home/melissa/Programacion/pixel-avatar-api/PixelAvatar.csproj",
       "packagesPath": "/home/melissa/.nuget/packages/",
-      "outputPath": "/home/melissa/Programaxion/pixel-avatar/PixelAvatar/obj/",
+      "outputPath": "/home/melissa/Programacion/pixel-avatar-api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/melissa/.nuget/NuGet/NuGet.Config"
@@ -1102,7 +1102,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -1143,7 +1143,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.8, 9.0.8]"
+            "version": "[9.0.11, 9.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[9.0.11, 9.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[9.0.11, 9.0.11]"
           }
         ],
         "frameworkReferences": {
@@ -1154,7 +1162,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
