@@ -6,18 +6,15 @@
 
 ---
 
-[//]: # ()
-[//]: # (## Ejemplos)
 
-[//]: # ()
-[//]: # (| `GET /luna01` | `GET /neo@example` | `GET /Cupido` |)
+## Ejemplos
 
-[//]: # (|:---:|:---:|:---:|)
 
-[//]: # (| ![luna01]&#40;Examples/luna02.png&#41; | ![neo]&#40;Examples/neo@example.png&#41; | ![Cupido]&#40;Examples/Cupido.png&#41; |)
+| "Cupido"                                    | "luna03"                                     | "noe@example"                                     |
+|---------------------------------------------|----------------------------------------------|---------------------------------------------------|
+| <img src="./Examples/cupido.png" width=128> | <img src="./Examples/luna01.png" width=128 > | <img src="./Examples/noe@example.png" width=128 > | 
 
-[//]: # ()
-[//]: # (---)
+---
 
 ## Cómo funciona
 
@@ -26,7 +23,7 @@
 3. Las capas (`base`, `face`, `hair`, `clothes`, `accessories`) se componen en orden.
 4. El resultado se devuelve como un PNG.
 
-El proceso es completamente determinístico: la misma entrada siempre produce el mismo avatar.
+El proceso es completamente determinístico: la misma entrada siempre produce el mismo avatar, con 37.800 combinaciones posibles.
 
 ---
 
