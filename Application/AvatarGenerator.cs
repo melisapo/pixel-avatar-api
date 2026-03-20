@@ -95,9 +95,9 @@ public class AvatarGenerator(FileSystemLayerRepository repo, IMemoryCache cache)
         var layers = new List<string>
         {
             repo.GetPath("bases",   avatar.Base),
-            repo.GetPath("faces",   avatar.Face),
             repo.GetPath("hairs",   avatar.Hair),
             repo.GetPath("clothes", avatar.Clothes),
+            repo.GetPath("faces",   avatar.Face)
         };
 
         if (avatar.Accessories is not null)
@@ -112,7 +112,14 @@ public class AvatarGenerator(FileSystemLayerRepository repo, IMemoryCache cache)
         foreach (var path in layers.Where(File.Exists))
         {
             using var layer = await Image.LoadAsync<Rgba32>(path);
-            layer.Mutate(x => x.Resize(size, size));
+            
+            layer.Mutate(x => x.Resize(new ResizeOptions
+            {
+                Size = new Size(size, size),
+                Sampler = KnownResamplers.NearestNeighbor,
+                Mode = ResizeMode.Stretch
+            }));
+            
             finalImage.Mutate(x => x.DrawImage(layer, graphicsOptions));
         }
 
