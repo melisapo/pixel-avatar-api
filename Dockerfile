@@ -16,5 +16,6 @@ RUN dotnet publish "PixelAvatar.csproj" -c $BUILD_CONFIGURATION -o /app/publish 
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
+COPY --from=build /src/Assets ./Assets
 
 CMD ASPNETCORE_URLS=http://+:${PORT:-8080} dotnet PixelAvatar.dll
