@@ -1,0 +1,14 @@
+.git/
+.gitignore
+
+README.md
+Examples/
+
+.idea/
+.vscode/
+.vs/
+
+bin/
+obj/
+
+appsettings.Development.json
