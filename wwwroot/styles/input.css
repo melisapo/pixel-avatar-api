@@ -2,8 +2,8 @@
 @source "../wwwroot/js/**/*.js";
 
 @theme {
-    --font-display: "Handjet", sans-serif;
-    --font-mono: "Iosevka Charon", monospace;
+    --font-display: "Jersey 10", sans-serif;
+    --font-mono: "Space Grotesk", sans-serif;
 
     --color-cornsilk: #FDF8E2;
     --color-vanilla: #FFF3C2;
@@ -16,14 +16,15 @@
 :root {
     --cornsilk: #FDF8E2;
     --vanilla: #FFF3C2;
-    --periwinkle: #B9B0E8;
+    --periwinkle: #C7C0ED;
     --grape: #454365;
 
     --pixel-border: 4px;
+    --pixel-border-sm: 2px;
 
 }
 
-.pixel-border-dark {
+.pixel-border {
     box-shadow:
             0 calc(var(--pixel-border) * -1) 0 0 var(--grape),
             0 var(--pixel-border) 0 0 var(--grape),
@@ -31,21 +32,11 @@
             var(--pixel-border) 0 0 0 var(--grape);
     margin: var(--pixel-border);
 }
-.pixel-border-accent {
+.pixel-border-sm {
     box-shadow:
-            0 calc(var(--pixel-border) * -1) 0 0 var(--periwinkle),
-            0 var(--pixel-border) 0 0 var(--periwinkle),
-            calc(var(--pixel-border) * -1) 0 0 0 var(--periwinkle),
-            var(--pixel-border) 0 0 0 var(--periwinkle),;
-    margin: var(--pixel-border);
-}
-
-.pixel-btn {
-    @apply px-4 py-2 tracking-tighter flex items-center justify-center gap-2;
-    transition: all 0.1s;
-    cursor: pointer;
-}
-.pixel-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: none;
+            0 calc(var(--pixel-border-sm) * -1) 0 0 var(--grape),
+            0 var(--pixel-border-sm) 0 0 var(--grape),
+            calc(var(--pixel-border-sm) * -1) 0 0 0 var(--grape),
+            var(--pixel-border-sm) 0 0 0 var(--grape);
+    margin: var(--pixel-border-sm);
 }

@@ -2,7 +2,7 @@ class PaHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
       <header class="p-4 md:px-12 xl:px-20 ">
-        <div class="flex items-center justify-between px-4 py-2 md:px-6 md:py-4 pixel-border-dark bg-cornsilk font-display text-2xl md:text-4xl font-bold">
+        <div class="flex items-center justify-between px-4 py-2 md:px-6 md:py-4 pixel-border bg-cornsilk font-display text-2xl md:text-4xl font-bold">
             <a href="/" class="text-grape">
                 Pixel Avatar Generator
             </a>

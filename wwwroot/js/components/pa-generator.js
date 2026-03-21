@@ -1,45 +1,47 @@
 class PaGenerator extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section class="px-6 pb-16 max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <section class="px-6 pb-16 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
 
           <!-- Controls -->
-          <div class="bg-pixel-card border border-pixel-border rounded-2xl p-6 space-y-5">
+          <div class="bg-cornsilk pixel-border p-6 space-y-5">
             <div>
-              <label class="block text-xs font-mono text-pixel-muted mb-2 uppercase tracking-widest">Nombre</label>
-              <input type="text" id="pa-name" placeholder="luna01, max, neo@example..." />
+              <label class="block text-lg font-mono font-bold text-grape mb-2 ">Seed</label>
+              <input type="text" id="pa-name" placeholder="luna01, 1234, neo@example..." class="text-grape font-mono font-semibold py-1 px-2 focus:outline-none pixel-border-sm"/>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-mono text-pixel-muted mb-2 uppercase tracking-widest">Tamaño (px)</label>
-                <input type="number" id="pa-size" value="128" min="8" max="512" step="8" />
+                <label class="block text-lg font-mono font-bold text-grape mb-2 ">Size (px)</label>
+                <input type="number" id="pa-size" value="256" min="8" max="512" step="8" class="focus:outline-none pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2 "/>
               </div>
               <div>
-                <label class="block text-xs font-mono text-pixel-muted mb-2 uppercase tracking-widest">Fondo</label>
-                <select id="pa-bg-select">
-                  <option value="">Transparente</option>
-                  <optgroup label="Predefinidos">
-                    <option value="blue-light">Azul claro</option>
-                    <option value="blue-dark">Azul oscuro</option>
-                    <option value="green-light">Verde claro</option>
-                    <option value="green-dark">Verde oscuro</option>
-                    <option value="yellow-light">Amarillo claro</option>
-                    <option value="yellow-dark">Amarillo oscuro</option>
-                    <option value="red-light">Rojo claro</option>
-                    <option value="red-dark">Rojo oscuro</option>
-                    <option value="pink-light">Rosa claro</option>
-                    <option value="pink-dark">Rosa oscuro</option>
-                    <option value="purple-light">Morado claro</option>
-                    <option value="purple-dark">Morado oscuro</option>
-                    <option value="cyan-light">Cyan claro</option>
-                    <option value="cyan-dark">Cyan oscuro</option>
-                    <option value="white">Blanco</option>
-                    <option value="black">Negro</option>
+                <label class="block text-lg font-mono font-bold text-grape mb-2 ">Background</label>
+                <select id="pa-bg-select" class="pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2">
+                  <option value="">Transparent</option>
+                  <optgroup label="Light">
+                    <option value="blue-light">Light Blue</option>
+                    <option value="green-light">Light Green</option>
+                    <option value="yellow-light">Light Yellow</option>
+                    <option value="red-light">Light Red</option>
+                    <option value="pink-light">Light Pink</option>
+                    <option value="purple-light">Light Purple</option>
+                    <option value="cyan-light">Light Cyan</option>
+                    <option value="white">White</option>
                   </optgroup>
-                  <optgroup label="Personalizado">
-                    <option value="__custom__">Personalizado...</option>
+                  <optgroup label="Dark">
+                    <option value="blue-dark">Dark Blue</option>
+                    <option value="green-dark">Dark Green</option>
+                    <option value="yellow-dark">Dark Yellow</option>
+                    <option value="red-dark">Dark Red</option>
+                    <option value="pink-dark">Dark Pink</option>
+                    <option value="purple-dark">Dark Purple</option>
+                    <option value="cyan-dark">Dark Cyan</option>
+                    <option value="black">Black</option>
+                  </optgroup>
+                  <optgroup label="Custom">
+                    <option value="__custom__">Customize...</option>
                   </optgroup>
                 </select>
               </div>
@@ -47,7 +49,7 @@ class PaGenerator extends HTMLElement {
 
             <!-- Custom color picker -->
             <div id="pa-hex-wrap" class="hidden">
-              <label class="block text-xs font-mono text-pixel-muted mb-2 uppercase tracking-widest">Color personalizado</label>
+              <label class="block text-lg font-mono font-bold text-grape mb-2 tracking-widest">Custom Color</label>
               <div class="flex items-center gap-3">
                 <input type="color" id="pa-bghex" value="#1a1a2e"
                   style="width:48px; height:40px; padding:2px; border-radius:8px; border:1px solid #2a2a2e; background:#17171a; cursor:pointer;" />
@@ -56,38 +58,38 @@ class PaGenerator extends HTMLElement {
             </div>
 
             <button id="pa-generate-btn"
-              class="w-full bg-pixel-accent text-pixel-bg font-display font-semibold py-3 rounded-xl hover:brightness-110 active:scale-95 transition-all text-sm tracking-wide">
-              Generar avatar
+              class="w-full bg-grape pixel-border text-cornsilk hover:bg-grape/95 transition-colors font-display font-semibold py-3 px-8 text-2xl tracking-wide cursor-pointer">
+              Generate Avatar
             </button>
 
             <!-- URL generada -->
-            <div id="pa-url-wrap" class="hidden">
-              <label class="block text-xs font-mono text-pixel-muted mb-2 uppercase tracking-widest">URL</label>
-              <div id="pa-url-box" class="font-mono text-xs bg-pixel-bg border border-pixel-border rounded-lg px-3 py-2 text-pixel-muted break-all"></div>
+            <div id="pa-url-wrap" class="hidden mt-6 mb-6 w-full">
+              <label class=" text-lg font-mono font-bold text-grape mb-2 tracking-widest">URL</label>
+              <div id="pa-url-box" class="font-mono font-semibold text-lg px-3 py-2 pixel-border-sm text-grape/80"></div>
             </div>
           </div>
 
           <!-- Preview -->
-          <div class="bg-pixel-card border border-pixel-border rounded-2xl p-6 flex flex-col items-center justify-center min-h-64 gap-4">
-            <div id="pa-placeholder" class="text-center space-y-2">
-              <div class="w-16 h-16 bg-pixel-border rounded-xl mx-auto flex items-center justify-center">
-                <span class="text-pixel-muted text-2xl">?</span>
+          <div class="bg-cornsilk pixel-border p-6 flex flex-col items-center justify-center min-h-64 gap-4">
+            <div id="pa-placeholder" class="text-center flex flex-col justify-center">
+              <div class="flex items-center justify-center text-grape mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32"><path fill="currentColor" d="M17.525 31.24v-1.52h3.04v-1.53h3.05v-1.52h3.05v-1.53h1.52v-1.52h1.53V8.38h-1.53V6.86h-1.52v1.52h-3.05v1.53h-3.05v1.52h-3.04v1.52h-3.05v1.53H16v15.24h-1.52v1.52Zm6.09-18.29h3.05v1.53h-3.05Zm-4.57 9.15H22.1v3.04h-3.05Zm4.57-16.76h3.05v1.52h-3.05Zm-3.05-1.53h3.05v1.53h-3.05Zm-3.04-1.52h3.04v1.52h-3.04Zm-3.05 4.57h3.05v3.05h-3.05Zm0-6.1h3.05v1.53h-3.05Zm-3.05 27.43h3.05v1.53h-3.05Z"/><path fill="currentColor" d="M11.425 11.43h3.05v1.52h-3.05Zm0-9.14h3.05v1.52h-3.05Zm0 19.81h3.05v3.04h-3.05Zm0-6.1h3.05v3.05h-3.05Zm-3.05 10.67h3.05v1.52h-3.05Zm0-16.76h3.05v1.52h-3.05Zm0-6.1h3.05v1.53h-3.05Zm-3.04 21.33h3.04v1.53h-3.04Zm0-16.76h3.04v1.53h-3.04Zm0-3.04h3.04v1.52h-3.04Zm0 13.71h3.04v3.05h-3.04Zm0-6.1h3.04V16h-3.04Zm-1.53 10.67h1.53v1.52h-1.53Zm0-16.76h1.53v1.52h-1.53Zm-1.52 1.52h1.52v15.24h-1.52Z"/></svg>
               </div>
-              <p class="text-pixel-muted text-sm font-mono">Escribe un nombre y genera</p>
+              <p class="text-grape text-xl font-mono font-bold">Insert a seed and see what happens</p>
             </div>
 
             <div id="pa-avatar-wrap" class="hidden flex-col items-center gap-4">
-              <div class="rounded-xl overflow-hidden">
+              <div class="rounded-xl overflow-hidden min-h-64 mb-4 flex items-center justify-center">
                 <img id="pa-avatar-img" class="avatar-preview block" alt="avatar" />
               </div>
               <a id="pa-download-btn"
-                class="text-xs font-mono text-pixel-accent border border-pixel-accent px-4 py-2 rounded-lg hover:bg-pixel-accent hover:text-pixel-bg transition-all"
+                class="flex items-center justify-center gap-2 text-2xl font-display text-grape pixel-border px-8 py-2 hover:bg-grape hover:text-cornsilk transition-colors"
                 download="avatar.png">
-                Descargar PNG
+                Download PNG
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20h16v2H4zm7-18h2v16h-2zm2 12h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2zm-8 4h2v2H9zm-2-2h2v2H7zm-2-2h2v2H5z"/></svg>
               </a>
             </div>
           </div>
-
         </div>
       </section>
     `;
@@ -100,7 +102,7 @@ class PaGenerator extends HTMLElement {
         const hexWrap  = this.querySelector('#pa-hex-wrap');
         const hexInput = this.querySelector('#pa-bghex');
         const hexLabel = this.querySelector('#pa-hex-label');
-        const nameInput = this.querySelector('#pa-name');
+        const nameInput= this.querySelector('#pa-name');
         const btn      = this.querySelector('#pa-generate-btn');
 
         bgSelect.addEventListener('change', () => {
