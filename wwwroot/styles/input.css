@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "../wwwroot/js/**/*.js";
 
 @theme {
     --font-display: 'Syne', sans-serif;

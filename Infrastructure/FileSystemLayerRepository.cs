@@ -17,11 +17,6 @@ public class FileSystemLayerRepository
             ["clothes"]     = CountAssets("clothes"),
             ["accessories"] = CountAssets("accessories")
         };
-        
-        Console.WriteLine($"[Assets] Buscando en: {_assetsPath}");
-        Console.WriteLine($"[Assets] Existe: {Directory.Exists(_assetsPath)}");
-        foreach (var key in _partCounts.Keys)
-            Console.WriteLine($"[Assets] {key}: {_partCounts[key]} archivos");
     }
 
     public int GetCount(string part) =>
