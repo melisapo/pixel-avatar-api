@@ -10,7 +10,7 @@
 ## Ejemplos
 
 
-| "Cupido"                                    | "luna03"                                     | "noe@example"                                     |
+| "Cupido"                                    | "luna01"                                     | "noe@example"                                     |
 |---------------------------------------------|----------------------------------------------|---------------------------------------------------|
 | <img src="./Examples/cupido.png" width=128> | <img src="./Examples/luna01.png" width=128 > | <img src="./Examples/noe@example.png" width=128 > | 
 
@@ -35,11 +35,11 @@ El proceso es completamente determinístico: la misma entrada siempre produce el
 GET /{name}?size={size}&bg={color}
 ```
 
-| Parámetro | Tipo | Por defecto | Descripción |
-|-----------|------|-------------|-------------|
-| `name` | `string` | requerido | Identificador base del avatar |
-| `size` | `int` | `16` | Tamaño del PNG en píxeles (8–512) |
-| `bg` | `string` | transparente | Color de fondo (ver opciones abajo) |
+| Parámetro | Tipo     | Por defecto  | Descripción                         |
+|-----------|----------|--------------|-------------------------------------|
+| `name`    | `string` | requerido    | Identificador base del avatar       |
+| `size`    | `int`    | `16`         | Tamaño del PNG en píxeles (8–512)   |
+| `bg`      | `string` | transparente | Color de fondo (ver opciones abajo) |
 
 ### Colores de fondo
 
@@ -47,16 +47,16 @@ El parámetro `bg` acepta dos formatos:
 
 **Nombres predefinidos**
 
-| Color | Claro | Oscuro |
-|-------|-------|--------|
-| azul | `blue-light` | `blue-dark` |
-| verde | `green-light` | `green-dark` |
+| Color    | Claro          | Oscuro        |
+|----------|----------------|---------------|
+| azul     | `blue-light`   | `blue-dark`   |
+| verde    | `green-light`  | `green-dark`  |
 | amarillo | `yellow-light` | `yellow-dark` |
-| rojo | `red-light` | `red-dark` |
-| rosa | `pink-light` | `pink-dark` |
-| morado | `purple-light` | `purple-dark` |
-| cyan | `cyan-light` | `cyan-dark` |
-| — | `white` | `black` |
+| rojo     | `red-light`    | `red-dark`    |
+| rosa     | `pink-light`   | `pink-dark`   |
+| morado   | `purple-light` | `purple-dark` |
+| cyan     | `cyan-light`   | `cyan-dark`   |
+| —        | `white`        | `black`       |
 
 **Hex personalizado** (con o sin `#`)
 
@@ -69,7 +69,7 @@ Si el valor es inválido, el fondo será transparente.
 
 ### Ejemplos de request
 
-```bash
+```
 # Avatar con fondo predefinido
 GET https://pixelavatar.onrender.com/luna01?size=128&bg=purple-dark
 
