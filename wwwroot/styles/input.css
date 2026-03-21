@@ -2,25 +2,49 @@
 @source "../wwwroot/js/**/*.js";
 
 @theme {
-    --font-display: 'Syne', sans-serif;
-    --font-mono: 'DM Mono', monospace;
+    --font-display: "Handjet", sans-serif;
+    --font-mono: "Iosevka Charon", monospace;
 
-    --color-pixel-bg: #0e0e10;
-    --color-pixel-card: #17171a;
-    --color-pixel-border: #2a2a2e;
-    --color-pixel-accent: #c8f135;
-    --color-pixel-muted: #6b6b75;
-    --color-pixel-text: #f0f0f2;
+    --color-cornsilk: #FDF8E2;
+    --color-vanilla: #FFF3C2;
+    --color-periwinkle: #B4A8F0;
+    --color-grape: #454365;
 
-    --animate-fadein: fadein 0.4s ease forwards;
-    --animate-pop: pop 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    --pixel-border: 4px;
+}
 
-    @keyframes fadein {
-        0% { opacity: 0; transform: translateY(8px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pop {
-        0% { transform: scale(0.9); opacity: 0; }
-        100% { transform: scale(1); opacity: 1; }
-    }
+:root {
+    --cornsilk: #FDF8E2;
+    --vanilla: #FFF3C2;
+    --periwinkle: #B4A8F0;
+    --grape: #454365;
+
+    --pixel-border: 4px;
+}
+
+.pixel-border-dark {
+    box-shadow:
+            0 calc(var(--pixel-border) * -1) 0 0 var(--grape),
+            0 var(--pixel-border) 0 0 var(--grape),
+            calc(var(--pixel-border) * -1) 0 0 0 var(--grape),
+            var(--pixel-border) 0 0 0 var(--grape);
+    margin: var(--pixel-border);
+}
+.pixel-border-accent {
+    box-shadow:
+            0 calc(var(--pixel-border) * -1) 0 0 var(--periwinkle),
+            0 var(--pixel-border) 0 0 var(--periwinkle),
+            calc(var(--pixel-border) * -1) 0 0 0 var(--periwinkle),
+            var(--pixel-border) 0 0 0 var(--periwinkle),;
+    margin: var(--pixel-border);
+}
+
+.pixel-btn {
+    @apply px-4 py-2 tracking-tighter flex items-center justify-center gap-2;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+.pixel-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
 }
