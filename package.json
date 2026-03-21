@@ -1,0 +1,26 @@
+{
+  "name": "pixel-avatar-api",
+  "version": "1.0.0",
+  "description": "> Genera avatares pixel art únicos y determinísticos a partir de cualquier string.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:build": "tailwindcss -i ./tailwind/input.css -o ./wwwroot/css/output.css --minify",
+    "css:watch": "tailwindcss -i ./tailwind/input.css -o ./wwwroot/css/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melisapo/pixel-avatar-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/melisapo/pixel-avatar-api/issues"
+  },
+  "homepage": "https://github.com/melisapo/pixel-avatar-api#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2"
+  }
+}

@@ -20,6 +20,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
-app.MapGet("/", () => "Escribe en la url '/<tu nombre>?size=512' para obtener tu avatar único <3");
+app.UseHttpsRedirection();
+app.UseStaticFiles();  
 
 app.Run();

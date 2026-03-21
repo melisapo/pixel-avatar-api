@@ -17,9 +17,10 @@ public class AvatarController(IAvatarService avatarService) : ControllerBase
     [HttpGet]
     [ResponseCache(Duration = 3600)]
     public async Task<IActionResult> GetAvatar(
-        string name, 
-        [FromQuery] int size = 16, 
-        [FromQuery] string? bg = null)
+        string name,
+        [FromQuery] int size = 16,
+        [FromQuery] string? bg = null
+    )
     {
         if (string.IsNullOrWhiteSpace(name))
             return BadRequest("Debe especificar un nombre válido.");

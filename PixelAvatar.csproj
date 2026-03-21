@@ -23,6 +23,7 @@
       <Folder Include="Assets\faces\" />
       <Folder Include="Assets\hairs\" />
       <Folder Include="Examples\" />
+      <Folder Include="wwwroot\css\" />
     </ItemGroup>
 
 </Project>

@@ -2,6 +2,12 @@
 bin/
 obj/
 
+# Node
+node_modules/
+
+# CSS generado por Tailwind
+wwwroot/css/
+
 # Configuración local
 appsettings.Development.json
 *.user
@@ -16,14 +22,6 @@ appsettings.Development.json
 
 # VS Code
 .vscode/
-
-# dotnet
-project.nuget.cache
-*.nuget.dgspec.json
-
-# Publicación
-publish/
-out/
 
 # Sistema operativo
 .DS_Store
