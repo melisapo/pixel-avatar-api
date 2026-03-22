@@ -1,48 +1,47 @@
 class PaDocs extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section id="docs" class="px-6 pb-24 max-w-5xl mx-auto border-t border-pixel-border pt-16">
-        <h2 class="font-display text-2xl font-semibold text-pixel-text mb-8">Documentación</h2>
-
+      <section id="docs" class="py-10 px-6 max-w-6xl mx-auto">
+        <div class="pixel-border bg-cornsilk px-8 py-6">
+            <h2 class="font-display text-4xl text-grape pb-4">Docs</h2>
         <div class="space-y-8">
-
           <div>
-            <p class="text-xs font-mono text-pixel-muted uppercase tracking-widest mb-3">Endpoint</p>
-            <div class="bg-pixel-card border border-pixel-border rounded-xl px-4 py-3 font-mono text-sm text-pixel-accent">
-              GET /{name}?size={size}&amp;bg={color}
+            <p class="text-xl font-mono font-bold text-grape tracking-widest mb-3">Endpoint</p>
+            <div class="pixel-border-sm px-4 py-3 font-mono font-semibold text-md text-grape/90">
+              GET /<span class="text-periwinkle">{name}</span>?size=<span class="text-periwinkle">{size}</span>&amp;bg=<span class="text-periwinkle">{color}</span>
             </div>
           </div>
 
           <div>
-            <p class="text-xs font-mono text-pixel-muted uppercase tracking-widest mb-3">Parámetros</p>
-            <div class="bg-pixel-card border border-pixel-border rounded-xl overflow-hidden">
-              <table class="w-full text-sm">
+            <p class="text-xl font-mono font-bold text-grape tracking-widest mb-3">Params</p>
+            <div class="pixel-border-sm overflow-hidden">
+              <table class="w-full text-md">
                 <thead>
-                  <tr class="border-b border-pixel-border">
-                    <th class="text-left px-4 py-3 text-pixel-muted font-mono text-xs">Parámetro</th>
-                    <th class="text-left px-4 py-3 text-pixel-muted font-mono text-xs">Tipo</th>
-                    <th class="text-left px-4 py-3 text-pixel-muted font-mono text-xs">Por defecto</th>
-                    <th class="text-left px-4 py-3 text-pixel-muted font-mono text-xs">Descripción</th>
+                  <tr class="border-b-2 border-grape bg-periwinkle/25">
+                    <th class="text-left px-4 py-3 text-grape font-mono text-lg">Param</th>
+                    <th class="text-left px-4 py-3 text-grape font-mono text-lg">Type</th>
+                    <th class="text-left px-4 py-3 text-grape font-mono text-lg">Default</th>
+                    <th class="text-left px-4 py-3 text-grape font-mono text-lg">Description</th>
                   </tr>
                 </thead>
-                <tbody class="font-mono text-xs">
-                  <tr class="border-b border-pixel-border">
-                    <td class="px-4 py-3 text-pixel-accent">name</td>
-                    <td class="px-4 py-3 text-pixel-muted">string</td>
-                    <td class="px-4 py-3 text-pixel-muted">requerido</td>
-                    <td class="px-4 py-3 text-pixel-text">Identificador del avatar</td>
+                <tbody class="font-mono text-md">
+                  <tr class="border-b-2 border-grape">
+                    <td class="px-4 py-3 font-semibold text-periwinkle">name</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">string</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">required</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">Avatar ID (seed)</td>
                   </tr>
-                  <tr class="border-b border-pixel-border">
-                    <td class="px-4 py-3 text-pixel-accent">size</td>
-                    <td class="px-4 py-3 text-pixel-muted">int</td>
-                    <td class="px-4 py-3 text-pixel-muted">16</td>
-                    <td class="px-4 py-3 text-pixel-text">Tamaño en píxeles (8–512)</td>
+                  <tr class="border-b-2 border-grape">
+                    <td class="px-4 py-3 font-semibold text-periwinkle">size</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">int</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">16</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">Size in pixels (8–512)</td>
                   </tr>
                   <tr>
-                    <td class="px-4 py-3 text-pixel-accent">bg</td>
-                    <td class="px-4 py-3 text-pixel-muted">string</td>
-                    <td class="px-4 py-3 text-pixel-muted">transparente</td>
-                    <td class="px-4 py-3 text-pixel-text">Nombre predefinido o hex sin #</td>
+                    <td class="px-4 py-3 font-semibold text-periwinkle">bg</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">string</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">transparent</td>
+                    <td class="px-4 py-3 font-semibold text-grape/90">Predefined color or hex code without #</td>
                   </tr>
                 </tbody>
               </table>
@@ -50,12 +49,13 @@ class PaDocs extends HTMLElement {
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            ${this._codeBlock('HTML', `&lt;img src="https://pixelavatar.onrender.com/luna01?size=128&amp;bg=purple-dark" /&gt;`)}
+            ${this._codeBlock('HTML', `<span class="text-periwinkle">&lt;img src=</span>"https://pixelavatar.onrender.com/luna01?\n  size=128&amp;bg=purple-dark"<span class="text-periwinkle">/&gt;</span>`)}
             ${this._codeBlock('JavaScript', `const url = \`/luna01?size=128&bg=purple-dark\`;\ndocument.getElementById("avatar").src = url;`)}
             ${this._codeBlock('React', `function Avatar({ username, hasPhoto, photoUrl }) {\n  const fallback = \`/\${username}?size=128\`;\n  return &lt;img src={hasPhoto ? photoUrl : fallback} /&gt;;\n}`)}
             ${this._codeBlock('Python', `def avatar_url(username, size=128, bg=""):\n    url = f"/{username}?size={size}"\n    if bg: url += f"&bg={bg}"\n    return url`)}
           </div>
 
+        </div>
         </div>
       </section>
     `;
@@ -64,8 +64,8 @@ class PaDocs extends HTMLElement {
     _codeBlock(lang, code) {
         return `
       <div>
-        <p class="text-xs font-mono text-pixel-muted uppercase tracking-widest mb-3">${lang}</p>
-        <pre class="bg-pixel-card border border-pixel-border rounded-xl px-4 py-3 font-mono text-xs text-pixel-text overflow-x-auto"><code>${code}</code></pre>
+        <p class="text-xl font-mono font-bold text-grape tracking-widest mb-3">${lang}</p>
+        <pre class="pixel-border-sm px-4 py-3 font-mono font-semibold text-lg text-grape/80 overflow-x-auto"><code>${code}</code></pre>
       </div>
     `;
     }

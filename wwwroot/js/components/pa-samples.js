@@ -4,23 +4,18 @@ const SAMPLE_NAMES = [
     'ash', 'zara', 'echo', 'finn', 'iris', 'koda'
 ];
 
-const SAMPLE_BGS = [
-    'purple-dark', 'blue-dark', 'cyan-dark',
-    'green-dark', 'pink-dark', 'yellow-dark'
-];
-
 class PaSamples extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section class="px-6 pb-20 max-w-5xl mx-auto">
+      <section class="px-6 pb-14 max-w-6xl mx-auto">
         <div class="flex items-center justify-between mb-6">
-          <h2 class="font-display text-xl font-semibold text-pixel-text">Ejemplos</h2>
+          <h2 class="font-display text-4xl text-grape">Here are some examples</h2>
           <button id="pa-reshuffle"
-            class="text-xs font-mono text-pixel-muted border border-pixel-border px-3 py-1.5 rounded-lg hover:border-pixel-accent hover:text-pixel-accent transition-all">
-            Regenerar
+            class="text-2xl font-display pixel-border-sm cursor-pointer text-grape px-4 py-1.5 hover:bg-grape hover:text-cornsilk transition-colors">
+            Regenerate
           </button>
         </div>
-        <div id="pa-samples-grid" class="grid grid-cols-3 sm:grid-cols-6 gap-4"></div>
+        <div id="pa-samples-grid" class="grid grid-cols-3 lg:grid-cols-6 gap-4 place-items-center"></div>
       </section>
     `;
 
@@ -35,27 +30,20 @@ class PaSamples extends HTMLElement {
         const picks = [...SAMPLE_NAMES].sort(() => Math.random() - 0.5).slice(0, 6);
 
         picks.forEach((name, i) => {
-            const bg = SAMPLE_BGS[i];
-
             const wrap = document.createElement('div');
             wrap.className = 'flex flex-col items-center gap-2 cursor-pointer group';
             wrap.addEventListener('click', () => {
                 const generator = document.querySelector('pa-generator');
-                generator.generate(name, bg);
+                generator.generate(name);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
             const img = document.createElement('img');
-            img.src = `/${name}?size=64&bg=${bg}`;
+            img.src = `/${name}?size=64&bg=FDF8E2`;
             img.alt = name;
-            img.className = 'sample-avatar rounded-xl w-16 h-16 group-hover:scale-110 transition-transform';
-
-            const label = document.createElement('span');
-            label.className = 'text-xs font-mono text-pixel-muted group-hover:text-pixel-accent transition-colors truncate w-full text-center';
-            label.textContent = name;
+            img.className = 'sample-avatar w-32 h-32 pixel-border-sm group-hover:scale-105 transition-transform';
 
             wrap.appendChild(img);
-            wrap.appendChild(label);
             grid.appendChild(wrap);
         });
     }

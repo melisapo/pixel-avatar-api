@@ -1,7 +1,7 @@
 using pixel_avatar.Application;
 using pixel_avatar.Application.Interfaces;
 using pixel_avatar.Infrastructure;
-using pixel_avatar.Services;
+//using pixel_avatar.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddHttpClient("keepalive");
-builder.Services.AddHostedService<KeepAliveService>();
+//builder.Services.AddHostedService<KeepAliveService>();
 
 var app = builder.Build();
 
