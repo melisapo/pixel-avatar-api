@@ -2,7 +2,7 @@ class PaDocs extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
       <section id="docs" class="pt-10 pb-20 px-6 max-w-6xl mx-auto">
-        <div class="pixel-border bg-cornsilk px-8 py-6">
+        <div class="pixel-border bg-cornsilk px-4 py-6">
             <h2 class="font-display text-4xl text-grape pb-4">Docs</h2>
         <div class="space-y-8">
           <div>
@@ -14,8 +14,8 @@ class PaDocs extends HTMLElement {
 
           <div>
             <p class="text-xl font-mono font-bold text-grape tracking-widest mb-3">Params</p>
-            <div class="pixel-border-sm overflow-hidden">
-              <table class="w-full text-lg">
+            <div class="pixel-border-sm overflow-x-scroll">
+              <table class="w-full text-lg overflow-hidden">
                 <thead>
                   <tr class="border-b-2 border-grape bg-periwinkle/35">
                     <th class="text-left px-4 py-3 text-grape font-mono text-lg">Param</th>
