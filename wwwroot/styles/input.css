@@ -1,10 +1,36 @@
 @import "tailwindcss";
 @source "../wwwroot/js/**/*.js";
 
+@font-face {
+    font-family: 'Jersey 10';
+    src: url('../fonts/Jersey10-Regular.woff2') format('woff2');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Jersey 10';
+    src: url('../fonts/Jersey10-Regular.woff2') format('woff2');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../fonts/SpaceGrotesk-VariableFont_wght.woff2') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../fonts/JetBrainsMono-VariableFont_wght.woff2') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+
 @theme {
     --font-display: "Jersey 10", sans-serif;
     --font-mono: "Space Grotesk", sans-serif;
-    --font-code: "Space Mono", monospace;
+    --font-code: "JetBrains Mono", monospace;
     
     --color-cornsilk: #FDF8E2;
     --color-vanilla: #FFF3C2;

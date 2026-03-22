@@ -9,9 +9,9 @@ class PaSamples extends HTMLElement {
         this.innerHTML = `
       <section class="px-2 md:px-6 py-4 md:pb-10 max-w-6xl mx-auto">
         <div class="flex items-center justify-between mb-6 px-2">
-          <h2 class="font-display text-3xl md:text-4xl text-grape">Here are some examples</h2>
+          <h2 class="font-display font-medium text-3xl md:text-4xl text-grape">Here are some examples</h2>
           <button id="pa-reshuffle"
-            class="text-xl md:text-2xl font-display pixel-border-sm cursor-pointer text-grape px-4 py-1 hover:bg-grape hover:text-cornsilk transition-colors">
+            class="text-xl md:text-2xl font-medium font-display pixel-border-sm cursor-pointer text-grape px-4 py-1 hover:bg-grape hover:text-cornsilk transition-colors">
             Reshuffle
           </button>
         </div>

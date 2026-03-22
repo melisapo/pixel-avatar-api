@@ -3,7 +3,7 @@ class PaDocs extends HTMLElement {
         this.innerHTML = `
       <section id="docs" class="py-6 md:pb-16 px-2 md:px-6 max-w-6xl mx-auto">
         <div class="pixel-border bg-cornsilk px-4 py-6">
-            <h2 class="font-display text-3xl md:text-4xl pb-3 md:pb-5 text-grape">Docs</h2>
+            <h2 class="font-display font-medium text-3xl md:text-4xl pb-3 md:pb-5 text-grape">Docs</h2>
         <div class="space-y-8">
           <div>
             <p class="text-lg md:text-xl font-mono font-bold text-grape tracking-widest mb-3">Endpoint</p>
@@ -65,7 +65,7 @@ class PaDocs extends HTMLElement {
         return `
       <div>
         <p class="text-lg md:text-xl font-mono font-bold text-grape tracking-widest mb-3">${lang}</p>
-        <pre class="pixel-border-sm p-2 md:px-4 md:py-3 font-code font-semibold text-sm md:text-lg text-cornsilk bg-grape overflow-x-auto"><code>${code}</code></pre>
+        <pre class="pixel-border-sm p-2 md:px-4 md:py-3 font-medium text-sm md:text-[12px] text-cornsilk bg-grape overflow-x-auto"><code class="font-code font-semibold">${code}</code></pre>
       </div>
     `;
     }

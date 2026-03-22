@@ -58,7 +58,7 @@ class PaGenerator extends HTMLElement {
             </div>
 
             <button id="pa-generate-btn"
-              class="w-full transition-all text-cornsilk bg-grape pixel-border hover:bg-grape/95 font-display font-semibold py-3 px-8 text-lg md:text-2xl tracking-wide cursor-pointer">
+              class="w-full transition-all text-cornsilk bg-grape pixel-border hover:bg-grape/95 font-display font-bold py-3 px-8 text-lg md:text-2xl tracking-wide cursor-pointer">
               Generate Avatar
             </button>
 
@@ -83,7 +83,7 @@ class PaGenerator extends HTMLElement {
                 <img id="pa-avatar-img" class="avatar-preview block" alt="avatar" />
               </div>
               <a id="pa-download-btn"
-                class="flex items-center justify-center gap-2 text-2xl font-display text-grape pixel-border px-8 py-2 hover:bg-grape hover:text-cornsilk transition-colors"
+                class="flex items-center font-medium justify-center gap-2 text-2xl font-display text-grape pixel-border px-8 py-2 hover:bg-grape hover:text-cornsilk transition-colors"
                 download="avatar.png">
                 Download PNG
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20h16v2H4zm7-18h2v16h-2zm2 12h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2zm-8 4h2v2H9zm-2-2h2v2H7zm-2-2h2v2H5z"/></svg>
