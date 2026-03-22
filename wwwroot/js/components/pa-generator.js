@@ -58,7 +58,7 @@ class PaGenerator extends HTMLElement {
             </div>
 
             <button id="pa-generate-btn"
-              class="w-full transition-all text-cornsilk bg-grape pixel-border hover:bg-grape/95 font-display font-semibold py-3 px-8 text-2xl tracking-wide cursor-pointer">
+              class="w-full transition-all text-cornsilk bg-grape pixel-border hover:bg-grape/95 font-display font-semibold py-3 px-8 text-lg md:text-2xl tracking-wide cursor-pointer">
               Generate Avatar
             </button>
 
