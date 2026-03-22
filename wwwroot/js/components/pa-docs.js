@@ -1,9 +1,9 @@
 class PaDocs extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section id="docs" class="py-10 md:pb-16 px-2 md:px-6 max-w-6xl mx-auto">
+      <section id="docs" class="py-6 md:pb-16 px-2 md:px-6 max-w-6xl mx-auto">
         <div class="pixel-border bg-cornsilk px-4 py-6">
-            <h2 class="font-display text-2xl md:text-4xl text-grape">Docs</h2>
+            <h2 class="font-display text-3xl md:text-4xl pb-3 md:pb-5 text-grape">Docs</h2>
         <div class="space-y-8">
           <div>
             <p class="text-lg md:text-xl font-mono font-bold text-grape tracking-widest mb-3">Endpoint</p>
@@ -18,30 +18,30 @@ class PaDocs extends HTMLElement {
               <table class="w-full overflow-hidden">
                 <thead>
                   <tr class="border-b-2 border-grape bg-periwinkle/35 md:text-lg">
-                    <th class="text-left px-4 py-3 text-grape font-mono ">Param</th>
-                    <th class="text-left px-4 py-3 text-grape font-mono ">Type</th>
-                    <th class="text-left px-4 py-3 text-grape font-mono ">Default</th>
-                    <th class="text-left px-4 py-3 text-grape font-mono ">Description</th>
+                    <th class="text-left p-2 md:px-4 md:py-3 text-grape font-mono ">Param</th>
+                    <th class="text-left p-2 md:px-4 md:py-3 text-grape font-mono ">Type</th>
+                    <th class="text-left p-2 md:px-4 md:py-3 text-grape font-mono ">Default</th>
+                    <th class="text-left p-2 md:px-4 md:py-3 text-grape font-mono ">Description</th>
                   </tr>
                 </thead>
                 <tbody class="font-mono text-sm md:text-lg">
                   <tr class="border-b-2 border-grape">
-                    <td class="px-4 py-3 font-semibold text-periwinkle">name</td>
-                    <td class="px-4 py-3 font-semibold text-grape/85">string</td>
-                    <td class="px-4 py-3 font-semibold text-grape/85">required</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-periwinkle">name</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">string</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">required</td>
                     <td class="px-4 py-3 font-semibold text-wrap text-grape/85">Avatar ID (seed)</td>
                   </tr>
                   <tr class="border-b-2 border-grape">
-                    <td class="px-4 py-3 font-semibold text-periwinkle">size</td>
-                    <td class="px-4 py-3 font-semibold text-grape/85">int</td>
-                    <td class="px-4 py-3 font-semibold text-grape/85">16</td>
-                    <td class="px-4 py-3 font-semibold text-wrap text-grape/85">Size in pixels (8–512)</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-periwinkle">size</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">int</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">16</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-wrap text-grape/85">Size in pixels (8–512)</td>
                   </tr>
                   <tr>
-                    <td class="px-4 py-3 font-semibold text-periwinkle">bg</td>
-                    <td class="px-4 py-3 font-semibold text-grape/85">string</td>
-                    <td class="px-4 py-3 font-semibold text-grape/85">transparent</td>
-                    <td class="px-4 py-3 font-semibold text-wrap text-grape/85">Predefined color or hex code without #</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-periwinkle">bg</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">string</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">transparent</td>
+                    <td class="p-2 md:px-4 md:py-3 font-semibold text-wrap text-grape/85">Predefined color or hex code without #</td>
                   </tr>
                 </tbody>
               </table>

@@ -5,20 +5,20 @@ class PaGenerator extends HTMLElement {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-stretch">
 
           <!-- Controls -->
-          <div class="bg-cornsilk pixel-border p-6 space-y-5 pr-8">
+          <div class="bg-cornsilk pixel-border p-6 space-y-2 md:space-y-5 pr-8">
             <div>
               <label class="block md:text-lg font-mono font-bold text-grape mb-2 ">Seed</label>
-              <input type="text" id="pa-name" placeholder="luna01, 1234, neo@example..." class="w-full text-grape font-mono font-semibold py-1 px-2 focus:outline-none pixel-border-sm"/>
+              <input type="text" id="pa-name" placeholder="luna01, 1234, neo@example..." class="text-sm md:text-md w-full text-grape font-mono font-semibold py-1 px-2 focus:outline-none pixel-border-sm"/>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label class="block md:text-lg font-mono font-bold text-grape mb-2 ">Size (px)</label>
-                <input type="number" id="pa-size" value="256" min="8" max="512" step="8" class="w-full focus:outline-none pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2 "/>
+                <input type="number" id="pa-size" value="256" min="8" max="512" step="8" class="text-sm md:text-md w-full focus:outline-none pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2 "/>
               </div>
               <div>
                 <label class="block md:text-lg font-mono font-bold text-grape mb-2 ">Background</label>
-                <select id="pa-bg-select" class="w-full pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2">
+                <select id="pa-bg-select" class="text-sm md:text-md w-full pixel-border-sm font-mono font-semibold focus:outline-none text-grape/90 py-1 px-2">
                   <option value="">Transparent</option>
                   <optgroup label="Light">
                     <option value="blue-light">Light Blue</option>
@@ -53,7 +53,7 @@ class PaGenerator extends HTMLElement {
               <div class="flex items-center gap-3">
                 <input type="color" id="pa-bghex" value="#454365"
                   style="width:48px; height:38px; padding:2px; cursor:pointer;" />
-                <span class="font-mono font-semibold md:text-lg text-grape/90" id="pa-hex-label">#454365</span>
+                <span class="font-mono font-semibold text-sm md:text-md text-grape/90" id="pa-hex-label">#454365</span>
               </div>
             </div>
 

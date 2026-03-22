@@ -9,7 +9,7 @@ class PaSamples extends HTMLElement {
         this.innerHTML = `
       <section class="px-2 md:px-6 py-4 md:pb-10 max-w-6xl mx-auto">
         <div class="flex items-center justify-between mb-6 px-2">
-          <h2 class="font-display text-2xl md:text-4xl text-grape">Here are some examples</h2>
+          <h2 class="font-display text-3xl md:text-4xl text-grape">Here are some examples</h2>
           <button id="pa-reshuffle"
             class="text-xl md:text-2xl font-display pixel-border-sm cursor-pointer text-grape px-4 py-1 hover:bg-grape hover:text-cornsilk transition-colors">
             Reshuffle
@@ -41,7 +41,7 @@ class PaSamples extends HTMLElement {
             const img = document.createElement('img');
             img.src = `/${name}?size=64&bg=FDF8E2`;
             img.alt = name;
-            img.className = 'w-28 h-28 pixel-border-sm group-hover:scale-105 transition-transform';
+            img.className = 'w-24 h-24 md:w-28 md:h-28 pixel-border-sm group-hover:scale-105 transition-transform';
 
             wrap.appendChild(img);
             grid.appendChild(wrap);
