@@ -1,24 +1,24 @@
 class PaGenerator extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section class="px-6 pb-16 max-w-6xl mx-auto">
+      <section class="px-6 pb-16 pt-12 max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
 
           <!-- Controls -->
-          <div class="bg-cornsilk pixel-border p-6 space-y-5">
+          <div class="bg-cornsilk pixel-border p-6 space-y-5 pr-8">
             <div>
               <label class="block text-lg font-mono font-bold text-grape mb-2 ">Seed</label>
-              <input type="text" id="pa-name" placeholder="luna01, 1234, neo@example..." class="text-grape font-mono font-semibold py-1 px-2 focus:outline-none pixel-border-sm"/>
+              <input type="text" id="pa-name" placeholder="luna01, 1234, neo@example..." class="w-full text-grape font-mono font-semibold py-1 px-2 focus:outline-none pixel-border-sm"/>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label class="block text-lg font-mono font-bold text-grape mb-2 ">Size (px)</label>
-                <input type="number" id="pa-size" value="256" min="8" max="512" step="8" class="focus:outline-none pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2 "/>
+                <input type="number" id="pa-size" value="256" min="8" max="512" step="8" class="w-full focus:outline-none pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2 "/>
               </div>
               <div>
                 <label class="block text-lg font-mono font-bold text-grape mb-2 ">Background</label>
-                <select id="pa-bg-select" class="pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2">
+                <select id="pa-bg-select" class="w-full pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2">
                   <option value="">Transparent</option>
                   <optgroup label="Light">
                     <option value="blue-light">Light Blue</option>
@@ -51,14 +51,14 @@ class PaGenerator extends HTMLElement {
             <div id="pa-hex-wrap" class="hidden">
               <label class="block text-lg font-mono font-bold text-grape mb-2 tracking-widest">Custom Color</label>
               <div class="flex items-center gap-3">
-                <input type="color" id="pa-bghex" value="#1a1a2e"
-                  style="width:48px; height:40px; padding:2px; border-radius:8px; border:1px solid #2a2a2e; background:#17171a; cursor:pointer;" />
-                <span class="font-mono text-xs text-pixel-muted" id="pa-hex-label">#1a1a2e</span>
+                <input type="color" id="pa-bghex" value="#454365"
+                  style="width:48px; height:38px; padding:2px; cursor:pointer;" />
+                <span class="font-mono font-semibold text-lg text-grape/90" id="pa-hex-label">#454365</span>
               </div>
             </div>
 
             <button id="pa-generate-btn"
-              class="w-full bg-grape pixel-border text-cornsilk hover:bg-grape/95 transition-colors font-display font-semibold py-3 px-8 text-2xl tracking-wide cursor-pointer">
+              class="w-full transition-all pixel-button">
               Generate Avatar
             </button>
 

@@ -4,12 +4,17 @@
 @theme {
     --font-display: "Jersey 10", sans-serif;
     --font-mono: "Space Grotesk", sans-serif;
-
+    
     --color-cornsilk: #FDF8E2;
     --color-vanilla: #FFF3C2;
     --color-periwinkle: #8F81DA;
     --color-grape: #454365;
 
+    /*CODE COLORS*/
+    --color-lavander: #c8beff;
+    --color-coral: #ff9f89;
+    --color-lime: #e6ff89;
+    
     --pixel-border: 4px;
 }
 
@@ -20,7 +25,7 @@
     --grape: #454365;
 
     --pixel-border: 4px;
-    --pixel-border-sm: 2px;
+    --pixel-border-sm: 3px;
 
 }
 
@@ -39,4 +44,26 @@
             calc(var(--pixel-border-sm) * -1) 0 0 0 var(--grape),
             var(--pixel-border-sm) 0 0 0 var(--grape);
     margin: var(--pixel-border-sm);
+}
+
+.pixel-button{
+    @apply bg-grape text-cornsilk font-display font-semibold py-3 px-8 text-2xl tracking-wide cursor-pointer;
+
+    box-shadow:
+            0 calc(var(--pixel-border) * -1) 0 0 var(--grape),
+            0 var(--pixel-border) 0 0 var(--grape),
+            calc(var(--pixel-border) * -1) 0 0 0 var(--grape),
+            var(--pixel-border) 0 0 0 var(--grape);
+    margin: var(--pixel-border);
+}
+
+.pixel-button:hover{
+    @apply bg-periwinkle;
+    
+    box-shadow:
+            0 calc(var(--pixel-border) * -1) 0 0 var(--periwinkle),
+            0 var(--pixel-border) 0 0 var(--periwinkle),
+            calc(var(--pixel-border) * -1) 0 0 0 var(--periwinkle),
+            var(--pixel-border) 0 0 0 var(--periwinkle);
+    margin: var(--pixel-border);
 }

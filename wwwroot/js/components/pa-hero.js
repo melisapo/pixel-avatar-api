@@ -1,7 +1,7 @@
 class PaHero extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section class="px-6 pt-16 pb-10 max-w-7xl mx-auto text-center">
+      <section class="pt-20 pb-16 max-w-7xl mx-auto text-center">
         <h1 class="font-display text-5xl font-bold leading-tight text-grape mb-4">
           Tu nombre, tu avatar.
         </h1>

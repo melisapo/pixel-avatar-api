@@ -7,7 +7,7 @@ const SAMPLE_NAMES = [
 class PaSamples extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section class="px-6 pb-14 max-w-6xl mx-auto">
+      <section class="px-6 pb-16 pt-10 max-w-6xl mx-auto">
         <div class="flex items-center justify-between mb-6">
           <h2 class="font-display text-4xl text-grape">Here are some examples</h2>
           <button id="pa-reshuffle"
