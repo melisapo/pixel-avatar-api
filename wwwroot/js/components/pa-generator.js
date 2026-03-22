@@ -5,7 +5,7 @@ class PaGenerator extends HTMLElement {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-stretch">
 
           <!-- Controls -->
-          <div class="bg-cornsilk pixel-border p-6 space-y-2 md:space-y-5 pr-8">
+          <div class="bg-cornsilk pixel-border p-6 space-y-3 md:space-y-5 pr-8">
             <div>
               <label class="block md:text-lg font-mono font-bold text-grape mb-2 ">Seed</label>
               <input type="text" id="pa-name" placeholder="luna01, 1234, neo@example..." class="text-sm md:text-md w-full text-grape font-mono font-semibold py-1 px-2 focus:outline-none pixel-border-sm"/>

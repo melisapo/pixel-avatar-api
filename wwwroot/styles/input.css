@@ -4,6 +4,7 @@
 @theme {
     --font-display: "Jersey 10", sans-serif;
     --font-mono: "Space Grotesk", sans-serif;
+    --font-code: "Space Mono", monospace;
     
     --color-cornsilk: #FDF8E2;
     --color-vanilla: #FFF3C2;

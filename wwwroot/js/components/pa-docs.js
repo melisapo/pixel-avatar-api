@@ -65,7 +65,7 @@ class PaDocs extends HTMLElement {
         return `
       <div>
         <p class="text-lg md:text-xl font-mono font-bold text-grape tracking-widest mb-3">${lang}</p>
-        <pre class="pixel-border-sm p-2 md:px-4 md:py-3 font-mono font-semibold text-sm md:text-lg text-cornsilk bg-grape overflow-x-auto"><code>${code}</code></pre>
+        <pre class="pixel-border-sm p-2 md:px-4 md:py-3 font-code font-semibold text-sm md:text-lg text-cornsilk bg-grape overflow-x-auto"><code>${code}</code></pre>
       </div>
     `;
     }
