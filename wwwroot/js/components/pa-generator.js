@@ -1,23 +1,23 @@
 class PaGenerator extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section class="px-6 pb-16 pt-12 max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+      <section class="px-2 md:px-6 py-10 md:py-12 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-stretch">
 
           <!-- Controls -->
           <div class="bg-cornsilk pixel-border p-6 space-y-5 pr-8">
             <div>
-              <label class="block text-lg font-mono font-bold text-grape mb-2 ">Seed</label>
+              <label class="block md:text-lg font-mono font-bold text-grape mb-2 ">Seed</label>
               <input type="text" id="pa-name" placeholder="luna01, 1234, neo@example..." class="w-full text-grape font-mono font-semibold py-1 px-2 focus:outline-none pixel-border-sm"/>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <label class="block text-lg font-mono font-bold text-grape mb-2 ">Size (px)</label>
+                <label class="block md:text-lg font-mono font-bold text-grape mb-2 ">Size (px)</label>
                 <input type="number" id="pa-size" value="256" min="8" max="512" step="8" class="w-full focus:outline-none pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2 "/>
               </div>
               <div>
-                <label class="block text-lg font-mono font-bold text-grape mb-2 ">Background</label>
+                <label class="block md:text-lg font-mono font-bold text-grape mb-2 ">Background</label>
                 <select id="pa-bg-select" class="w-full pixel-border-sm font-mono font-semibold text-grape/90 py-1 px-2">
                   <option value="">Transparent</option>
                   <optgroup label="Light">
@@ -49,23 +49,23 @@ class PaGenerator extends HTMLElement {
 
             <!-- Custom color picker -->
             <div id="pa-hex-wrap" class="hidden">
-              <label class="block text-lg font-mono font-bold text-grape mb-2 tracking-widest">Custom Color</label>
+              <label class="block md:text-lg font-mono font-bold text-grape mb-2 tracking-widest">Custom Color</label>
               <div class="flex items-center gap-3">
                 <input type="color" id="pa-bghex" value="#454365"
                   style="width:48px; height:38px; padding:2px; cursor:pointer;" />
-                <span class="font-mono font-semibold text-lg text-grape/90" id="pa-hex-label">#454365</span>
+                <span class="font-mono font-semibold md:text-lg text-grape/90" id="pa-hex-label">#454365</span>
               </div>
             </div>
 
             <button id="pa-generate-btn"
-              class="w-full transition-all pixel-button">
+              class="w-full transition-all text-cornsilk bg-grape pixel-border hover:bg-grape/95 font-display font-semibold py-3 px-8 text-2xl tracking-wide cursor-pointer">
               Generate Avatar
             </button>
 
             <!-- URL generada -->
             <div id="pa-url-wrap" class="hidden mt-6 mb-6 w-full">
-              <label class=" text-lg font-mono font-bold text-grape mb-2 tracking-widest">URL</label>
-              <div id="pa-url-box" class="font-mono font-semibold text-lg px-3 py-2 pixel-border-sm text-grape/80"></div>
+              <label class="md:text-lg font-mono font-bold text-grape mb-2 tracking-widest">URL</label>
+              <div id="pa-url-box" class="font-mono font-semibold md:text-lg px-3 py-2 pixel-border-sm text-grape/80"></div>
             </div>
           </div>
 

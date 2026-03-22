@@ -45,25 +45,3 @@
             var(--pixel-border-sm) 0 0 0 var(--grape);
     margin: var(--pixel-border-sm);
 }
-
-.pixel-button{
-    @apply bg-grape text-cornsilk font-display font-semibold py-3 px-8 text-2xl tracking-wide cursor-pointer;
-
-    box-shadow:
-            0 calc(var(--pixel-border) * -1) 0 0 var(--grape),
-            0 var(--pixel-border) 0 0 var(--grape),
-            calc(var(--pixel-border) * -1) 0 0 0 var(--grape),
-            var(--pixel-border) 0 0 0 var(--grape);
-    margin: var(--pixel-border);
-}
-
-.pixel-button:hover{
-    @apply bg-periwinkle;
-    
-    box-shadow:
-            0 calc(var(--pixel-border) * -1) 0 0 var(--periwinkle),
-            0 var(--pixel-border) 0 0 var(--periwinkle),
-            calc(var(--pixel-border) * -1) 0 0 0 var(--periwinkle),
-            var(--pixel-border) 0 0 0 var(--periwinkle);
-    margin: var(--pixel-border);
-}
