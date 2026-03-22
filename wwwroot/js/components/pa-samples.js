@@ -7,15 +7,15 @@ const SAMPLE_NAMES = [
 class PaSamples extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-      <section class="px-6 pb-16 pt-10 max-w-6xl mx-auto">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="font-display text-4xl text-grape">Here are some examples</h2>
+      <section class="px-2 md:px-6 py-4 md:pb-10 max-w-6xl mx-auto">
+        <div class="flex items-center justify-between mb-6 px-2">
+          <h2 class="font-display text-2xl md:text-4xl text-grape">Here are some examples</h2>
           <button id="pa-reshuffle"
-            class="text-2xl font-display pixel-border-sm cursor-pointer text-grape px-4 py-1.5 hover:bg-grape hover:text-cornsilk transition-colors">
-            Regenerate
+            class="text-xl md:text-2xl font-display pixel-border-sm cursor-pointer text-grape px-4 py-1 hover:bg-grape hover:text-cornsilk transition-colors">
+            Reshuffle
           </button>
         </div>
-        <div id="pa-samples-grid" class="grid grid-cols-3 lg:grid-cols-6 gap-4 place-items-center"></div>
+        <div id="pa-samples-grid" class="grid grid-cols-3 lg:grid-cols-6 gap-4"></div>
       </section>
     `;
 
@@ -35,13 +35,13 @@ class PaSamples extends HTMLElement {
             wrap.addEventListener('click', () => {
                 const generator = document.querySelector('pa-generator');
                 generator.generate(name);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 50, behavior: 'smooth' });
             });
 
             const img = document.createElement('img');
             img.src = `/${name}?size=64&bg=FDF8E2`;
             img.alt = name;
-            img.className = 'sample-avatar w-32 h-32 pixel-border-sm group-hover:scale-105 transition-transform';
+            img.className = 'w-28 h-28 pixel-border-sm group-hover:scale-105 transition-transform';
 
             wrap.appendChild(img);
             grid.appendChild(wrap);
