@@ -59,7 +59,7 @@ public class AvatarGenerator(FileSystemLayerRepository repo, IMemoryCache cache)
         var clothesIndex     = HashSlice.ToRange(hash, 12, 4, repo.GetCount("clothes"));
         var accessoriesIndex = HashSlice.ToRange(hash, 16, 4, repo.GetCount("accessories"));
 
-        var hasAccessory = (accessoriesIndex % 10) < 8;
+        var hasAccessory = (accessoriesIndex % 10) < 4; //40% prob de que tenga accesorio
 
         return new AvatarCharacteristics(
             @base:       baseIndex,
