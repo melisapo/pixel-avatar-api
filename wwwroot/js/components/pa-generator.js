@@ -58,14 +58,21 @@ class PaGenerator extends HTMLElement {
             </div>
 
             <button id="pa-generate-btn"
-              class="w-full transition-all text-cornsilk bg-grape pixel-border hover:bg-grape/95 font-display font-bold py-3 px-8 text-lg md:text-2xl tracking-wide cursor-pointer">
+              class="w-full transition-all text-cornsilk bg-grape pixel-border hover:bg-grape/95 font-display font-bold py-3 px-8 text-2xl md:text-3xl tracking-wide cursor-pointer">
               Generate Avatar
             </button>
 
             <!-- URL generada -->
             <div id="pa-url-wrap" class="hidden mt-6 mb-6 w-full">
-              <label class="md:text-lg font-mono font-bold text-grape mb-2 tracking-widest">URL</label>
-              <div id="pa-url-box" class="font-mono font-semibold md:text-lg px-3 py-2 pixel-border-sm text-grape/80"></div>
+                <label class="md:text-lg font-mono font-bold text-grape tracking-widest">URL</label>
+                    <div class="relative">
+                    <button id="pa-copy-btn" class="text-cornsilk absolute -top-3 -right-3 bg-grape p-1.5 pixel-border-sm transition-colors cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                    </button>
+                    <div id="pa-url-box" class="font-mono font-semibold md:text-lg px-3 py-2 pixel-border-sm text-grape/80">
+                </div>
+                </div>
+                
             </div>
           </div>
 
@@ -153,8 +160,21 @@ class PaGenerator extends HTMLElement {
             placeholder.classList.add('hidden');
             avatarWrap.classList.remove('hidden');
             avatarWrap.classList.add('flex');
-            urlBox.textContent = window.location.origin + url;
+
+            const fullUrl = window.location.origin + url;
+            urlBox.textContent = fullUrl;
             urlWrap.classList.remove('hidden');
+
+            const copyBtn = this.querySelector('#pa-copy-btn');
+            copyBtn.onclick = () => {
+                navigator.clipboard.writeText(fullUrl).then(() => {
+                    copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>`;
+                    setTimeout(() => {
+                        copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;
+                    }, 2000);
+                });
+            };
+            
             dlBtn.href = url;
         };
 

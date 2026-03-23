@@ -17,7 +17,7 @@ class PaDocs extends HTMLElement {
             <div class="pixel-border-sm overflow-x-scroll">
               <table class="w-full overflow-hidden">
                 <thead>
-                  <tr class="border-b-2 border-grape bg-periwinkle/35 md:text-lg">
+                  <tr class="border-b-3 border-grape bg-periwinkle/35 md:text-lg">
                     <th class="text-left p-2 md:px-4 md:py-3 text-grape font-mono ">Param</th>
                     <th class="text-left p-2 md:px-4 md:py-3 text-grape font-mono ">Type</th>
                     <th class="text-left p-2 md:px-4 md:py-3 text-grape font-mono ">Default</th>
@@ -25,13 +25,13 @@ class PaDocs extends HTMLElement {
                   </tr>
                 </thead>
                 <tbody class="font-mono text-sm md:text-lg">
-                  <tr class="border-b-2 border-grape">
+                  <tr class="border-b-3 border-grape">
                     <td class="p-2 md:px-4 md:py-3 font-semibold text-periwinkle">name</td>
                     <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">string</td>
                     <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">required</td>
                     <td class="px-4 py-3 font-semibold text-wrap text-grape/85">Avatar ID (seed)</td>
                   </tr>
-                  <tr class="border-b-2 border-grape">
+                  <tr class="border-b-3 border-grape">
                     <td class="p-2 md:px-4 md:py-3 font-semibold text-periwinkle">size</td>
                     <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">int</td>
                     <td class="p-2 md:px-4 md:py-3 font-semibold text-grape/85">16</td>
@@ -49,7 +49,7 @@ class PaDocs extends HTMLElement {
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
-            ${this._codeBlock('HTML', `&lt;<span class="text-lavander">img </span><span class="text-coral">src= </span><span class="text-lime">"https://pixelavatar.onrender.com/luna01?\n  size=128&amp;bg=purple-dark"</span>/&gt;`)}
+            ${this._codeBlock('HTML', `&lt;<span class="text-lavander">img </span><span class="text-coral">src</span>= <span class="text-lime">"https://pixelavatar.onrender.com/luna01?\n  size=128&amp;bg=purple-dark"</span>/&gt;`)}
             ${this._codeBlock('JavaScript', `<span class="text-coral">const</span> <span class="text-lavander">url</span> = <span class="text-lime">\'/luna01?size=128&bg=purple-dark\'</span>;\ndocument.<span class="text-coral">getElementById</span>(<span class="text-lime">"avatar"</span>).src = <span class="text-lavander">url</span>;`)}
             ${this._codeBlock('React', `<span class="text-lime">function</span> Avatar({<span class="text-lavander"> username</span>, <span class="text-lavander">hasPhoto</span>, <span class="text-lavander">photoUrl </span>}) {\n  <span class="text-coral"}>const</span> <span class="text-lavander">fallback</span> = <span class="text-lime">\`/\$<span class="text-coral">{username}</span>?size=128\`</span>;\n  <span class="text-lime">return</span> &lt;<span class="text-lavander">img</span> <span class="text-coral">src</span>=<span class="text-coral">{</span><span class="text-lavander">hasPhoto</span> <span class="text-lime">?</span> <span class="text-lavander">photoUrl</span> <span class="text-lime">:</span> <span class="text-lavander">fallback</span><span class="text-coral">}</span> /&gt;;\n}`)}
             ${this._codeBlock('Python', `<span class="text-lavander">def</span> avatar_url(<span class="text-coral">username</span>, <span class="text-coral">size</span>=<span class="text-lime">128</span>, <span class="text-coral">bg</span>=<span class="text-lime">""</span>):\n    <span class="text-coral">url</span> = <span class="text-lavander">f</span><span class="text-lime">"/</span>{<span class="text-coral">username</span>}<span class="text-lime">?size=</span>{<span class="text-coral">size</span>}<span class="text-lime">"</span>\n    <span class="text-lavander">if</span> <span class="text-coral">bg</span>: <span class="text-coral">url</span> +=<span class="text-lavander"> f</span><span class="text-lime">"&bg=</span>{<span class="text-coral">bg</span>}<span class="text-lime">"</span>\n    <span class="text-lavander">return</span> <span class="text-coral">url</span>`)}
@@ -65,7 +65,7 @@ class PaDocs extends HTMLElement {
         return `
       <div>
         <p class="text-lg md:text-xl font-mono font-bold text-grape tracking-widest mb-3">${lang}</p>
-        <pre class="pixel-border-sm p-2 md:px-4 md:py-3 font-medium text-sm md:text-[12px] text-cornsilk bg-grape overflow-x-auto"><code class="font-code font-semibold">${code}</code></pre>
+        <pre class="pixel-border-sm p-2 md:px-4 md:py-3 text-sm md:text-[12px] text-cornsilk bg-grape overflow-x-auto"><code class="font-code font-semibold">${code}</code></pre>
       </div>
     `;
     }
