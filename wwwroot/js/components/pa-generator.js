@@ -66,7 +66,7 @@ class PaGenerator extends HTMLElement {
             <div id="pa-url-wrap" class="hidden mt-6 mb-6 w-full">
                 <label class="md:text-lg font-mono font-bold text-grape tracking-widest">URL</label>
                     <div class="relative">
-                    <button id="pa-copy-btn" class="text-cornsilk absolute -top-3 -right-3 bg-grape p-1.5 pixel-border-sm transition-colors cursor-pointer">
+                    <button id="pa-copy-btn" class="text-cornsilk absolute -top-3 -right-3 bg-grape hover:bg-grape/95 p-1.5 pixel-border-sm transition-colors cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                     </button>
                     <div id="pa-url-box" class="font-mono font-semibold md:text-lg px-3 py-2 pixel-border-sm text-grape/80">

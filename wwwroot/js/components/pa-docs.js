@@ -59,15 +59,35 @@ class PaDocs extends HTMLElement {
         </div>
       </section>
     `;
+        this._bindCopyButtons();
     }
 
     _codeBlock(lang, code) {
         return `
-      <div>
-        <p class="text-lg md:text-xl font-mono font-bold text-grape tracking-widest mb-3">${lang}</p>
+    <div>
+      <p class="text-lg md:text-xl font-mono font-bold text-grape tracking-widest mb-3">${lang}</p>
+      <div class="relative mt-2">
+        <button class="pa-copy-code text-cornsilk absolute -top-4 -right-3 bg-grape p-1.5 pixel-border-sm transition-colors cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        </button>
         <pre class="pixel-border-sm p-2 md:px-4 md:py-3 text-sm md:text-[12px] text-cornsilk bg-grape overflow-x-auto"><code class="font-code font-semibold">${code}</code></pre>
       </div>
-    `;
+    </div>
+  `;
+    }
+    
+    _bindCopyButtons() {
+        this.querySelectorAll('.pa-copy-code').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const code = btn.nextElementSibling.querySelector('code').textContent;                
+                navigator.clipboard.writeText(code).then(() => {
+                    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>`;
+                    setTimeout(() => {
+                        btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;
+                    }, 2000);
+                });
+            });
+        });
     }
 }
 
