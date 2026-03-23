@@ -1,9 +1,3 @@
-const SAMPLE_NAMES = [
-    'luna01', 'neo', 'cupido', 'max', 'aria', 'pixel',
-    'zorka', 'eve', 'byte', 'nova', 'rex', 'mochi',
-    'ash', 'zara', 'echo', 'finn', 'iris', 'koda'
-];
-
 class PaSamples extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -27,7 +21,7 @@ class PaSamples extends HTMLElement {
         const grid = this.querySelector('#pa-samples-grid');
         grid.innerHTML = '';
 
-        const picks = [...SAMPLE_NAMES].sort(() => Math.random() - 0.5).slice(0, 6);
+        const picks = generarStringsAleatorios().slice(0, 6);
 
         picks.forEach((name, i) => {
             const wrap = document.createElement('div');
@@ -47,6 +41,25 @@ class PaSamples extends HTMLElement {
             grid.appendChild(wrap);
         });
     }
+}
+
+function generarStringsAleatorios() {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const resultados = [];
+
+    for (let i = 0; i < 6; i++) {
+        let stringAleatorio = '';
+        const longitud = Math.floor(Math.random() * 15) + 3; // Longitud entre 3 y 17 caracteres
+
+        for (let j = 0; j < longitud; j++) {
+            const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
+            stringAleatorio += caracteres[indiceAleatorio];
+        }
+
+        resultados.push(stringAleatorio);
+    }
+
+    return resultados;
 }
 
 customElements.define('pa-samples', PaSamples);
