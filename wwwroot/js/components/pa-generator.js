@@ -69,8 +69,7 @@ class PaGenerator extends HTMLElement {
                     <button id="pa-copy-btn" class="text-cornsilk absolute -top-3 -right-3 bg-grape hover:bg-grape/95 p-1.5 pixel-border-sm transition-colors cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                     </button>
-                    <div id="pa-url-box" class="font-mono font-semibold md:text-lg px-3 py-2 pixel-border-sm text-grape/80">
-                </div>
+                    <div id="pa-url-box" class="font-mono font-semibold md:text-lg px-3 py-2 pixel-border-sm break-all text-grape/80"></div>
                 </div>
                 
             </div>
@@ -164,7 +163,6 @@ class PaGenerator extends HTMLElement {
             const fullUrl = window.location.origin + url;
             urlBox.textContent = fullUrl;
             urlWrap.classList.remove('hidden');
-
             const copyBtn = this.querySelector('#pa-copy-btn');
             copyBtn.onclick = () => {
                 navigator.clipboard.writeText(fullUrl).then(() => {
