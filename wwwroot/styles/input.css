@@ -26,7 +26,6 @@
     font-display: swap;
 }
 
-
 @theme {
     --font-display: "Jersey 10", sans-serif;
     --font-mono: "Space Grotesk", sans-serif;
@@ -71,4 +70,18 @@
             calc(var(--pixel-border-sm) * -1) 0 0 0 var(--grape),
             var(--pixel-border-sm) 0 0 0 var(--grape);
     margin: var(--pixel-border-sm);
+}
+
+.decorative-bg {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.0' viewBox='0 0 512 512'%3E%3Cg fill='%238080BF' stroke-width='0'%3E%3Cpath d='M208 152v8h16v32h-16v16h16v-16h32v32h-48v48h48v32h-16v16h-32v32h32v-32h16v-16h32v-32h-32v-48h32v-32h16v-16h-16v16h-32v-32h-32v-16h-16zm64 0v8h16v-16h-16z'/%3E%3Cpath d='M208 296v8h16v-16h-16zm64 48v8h-16v16h16v-16h16v-16h-16z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 1800px auto;
+    background-position-x: -790px; /* Empieza en 0 y ve ajustando */
+    opacity: 0.4;
+    z-index: -1;
 }
