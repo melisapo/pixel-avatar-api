@@ -12,24 +12,24 @@ public class AvatarGenerator(FileSystemLayerRepository repo, IMemoryCache cache)
 {
     private static readonly Dictionary<string, Rgba32> PredefinedColors = new()
     {
-        ["blue-light"]   = new Rgba32(196, 231, 255),
-        ["blue-dark"]    = new Rgba32(14,  15,  66),
-        ["green-light"]  = new Rgba32(203, 255, 196),
-        ["green-dark"]   = new Rgba32(14,  66,  17),
+        ["blue-light"] = new Rgba32(196, 231, 255),
+        ["blue-dark"] = new Rgba32(14, 15, 66),
+        ["green-light"] = new Rgba32(203, 255, 196),
+        ["green-dark"] = new Rgba32(14, 66, 17),
         ["yellow-light"] = new Rgba32(252, 255, 196),
-        ["yellow-dark"]  = new Rgba32(66, 54,  14),
-        ["red-light"]    = new Rgba32(255, 208, 196),
-        ["red-dark"]     = new Rgba32(66, 14,  14),
-        ["pink-light"]   = new Rgba32(255, 196, 233),
-        ["pink-dark"]    = new Rgba32(66, 14,  51),
+        ["yellow-dark"] = new Rgba32(66, 54, 14),
+        ["red-light"] = new Rgba32(255, 208, 196),
+        ["red-dark"] = new Rgba32(66, 14, 14),
+        ["pink-light"] = new Rgba32(255, 196, 233),
+        ["pink-dark"] = new Rgba32(66, 14, 51),
         ["purple-light"] = new Rgba32(233, 196, 255),
-        ["purple-dark"]  = new Rgba32(50,  14,  66),
-        ["cyan-light"]   = new Rgba32(196, 255, 255),
-        ["cyan-dark"]    = new Rgba32(14,  66,  66),
-        ["white"]        = new Rgba32(255, 255, 255),
-        ["black"]        = new Rgba32(0,   0,   0),
+        ["purple-dark"] = new Rgba32(50, 14, 66),
+        ["cyan-light"] = new Rgba32(196, 255, 255),
+        ["cyan-dark"] = new Rgba32(14, 66, 66),
+        ["white"] = new Rgba32(255, 255, 255),
+        ["black"] = new Rgba32(0, 0, 0),
     };
-    
+
     private static Rgba32? ParseBackground(string? bg)
     {
         if (string.IsNullOrWhiteSpace(bg))
@@ -48,24 +48,24 @@ public class AvatarGenerator(FileSystemLayerRepository repo, IMemoryCache cache)
 
         return null;
     }
-    
+
     public AvatarCharacteristics GenerateCharacteristics(string input)
     {
         var hash = HashUtils.ToMd5(input);
 
-        var baseIndex = HashSlice.ToRange(hash, 0,  4, repo.GetCount("base"));
-        var faceIndex = HashSlice.ToRange(hash, 4,  4, repo.GetCount("face"));
-        var hairIndex = HashSlice.ToRange(hash, 8,  4, repo.GetCount("hair"));
-        var clothesIndex     = HashSlice.ToRange(hash, 12, 4, repo.GetCount("clothes"));
+        var baseIndex = HashSlice.ToRange(hash, 0, 4, repo.GetCount("base"));
+        var faceIndex = HashSlice.ToRange(hash, 4, 4, repo.GetCount("face"));
+        var hairIndex = HashSlice.ToRange(hash, 8, 4, repo.GetCount("hair"));
+        var clothesIndex = HashSlice.ToRange(hash, 12, 4, repo.GetCount("clothes"));
         var accessoriesIndex = HashSlice.ToRange(hash, 16, 4, repo.GetCount("accessories"));
 
         var hasAccessory = (accessoriesIndex % 10) < 4; //40% prob de que tenga accesorio
 
         return new AvatarCharacteristics(
-            @base:       baseIndex,
-            face:        faceIndex,
-            hair:        hairIndex,
-            clothes:     clothesIndex,
+            @base: baseIndex,
+            face: faceIndex,
+            hair: hairIndex,
+            clothes: clothesIndex,
             accessories: hasAccessory ? accessoriesIndex : null
         );
     }
@@ -105,21 +105,21 @@ public class AvatarGenerator(FileSystemLayerRepository repo, IMemoryCache cache)
 
         var graphicsOptions = new GraphicsOptions
         {
-            BlendPercentage      = 1f,
+            BlendPercentage = 1f,
             AlphaCompositionMode = PixelAlphaCompositionMode.SrcOver
         };
 
         foreach (var path in layers.Where(File.Exists))
         {
             using var layer = await Image.LoadAsync<Rgba32>(path);
-            
+
             layer.Mutate(x => x.Resize(new ResizeOptions
             {
                 Size = new Size(size, size),
                 Sampler = KnownResamplers.NearestNeighbor,
                 Mode = ResizeMode.Stretch
             }));
-            
+
             finalImage.Mutate(x => x.DrawImage(layer, graphicsOptions));
         }
 

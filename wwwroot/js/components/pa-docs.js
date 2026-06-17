@@ -68,7 +68,7 @@ class PaDocs extends HTMLElement {
       <p class="text-lg md:text-xl font-mono font-bold text-grape tracking-widest mb-3">${lang}</p>
       <div class="relative mt-2">
         <button class="pa-copy-code text-cornsilk absolute -top-4 -right-3 bg-grape p-1.5 pixel-border-sm transition-colors cursor-pointer">
-           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M8 6h12v2H8zM4 2h12v2H4zm2 6h2v12H6zM2 4h2v12H2zm6 16h12v2H8zM20 8h2v12h-2zm-4-4h2v2h-2zM4 16h2v2H4z"/></svg>
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M8 6h12v2H8zM4 2h12v2H4zm2 6h2v12H6zM2 4h2v12H2zm6 16h12v2H8zM20 8h2v12h-2zm-4-4h2v2h-2zM4 16h2v2H4z"/></svg>
         </button>
         <pre class="pixel-border-sm p-2 md:px-4 md:py-3 text-sm md:text-[12px] text-cornsilk bg-grape overflow-x-auto"><code class="font-code font-semibold">${code}</code></pre>
       </div>

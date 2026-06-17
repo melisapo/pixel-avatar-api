@@ -11,10 +11,10 @@ public class FileSystemLayerRepository
 
         _partCounts = new Dictionary<string, int>
         {
-            ["base"]        = CountAssets("bases"),
-            ["face"]        = CountAssets("faces"),
-            ["hair"]        = CountAssets("hairs"),
-            ["clothes"]     = CountAssets("clothes"),
+            ["base"] = CountAssets("bases"),
+            ["face"] = CountAssets("faces"),
+            ["hair"] = CountAssets("hairs"),
+            ["clothes"] = CountAssets("clothes"),
             ["accessories"] = CountAssets("accessories")
         };
     }
